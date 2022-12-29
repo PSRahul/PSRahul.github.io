@@ -87,22 +87,10 @@ footer:
       icon: "fab fa-linkedin"
       url: "https://linkedin.com/in/psrahul-ml"
 
-links:
-
-
-  - title: Projects
-    url: /Projects/
-  - title: Courses Studied
-    url: /Courses_Studied/
-  - title: Work Experience
-    url: /Work_Experience/
-  - title: Contact
-    url: /contact/
-    
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       layout: single
@@ -112,8 +100,8 @@ defaults:
       share: true
       related: true
   - scope:
-      path: ""
-      type: projects
+      path: "_projects"
+      type: pages
     values:
       layout: single
       author_profile: true
@@ -122,8 +110,8 @@ defaults:
       share: true
       related: true
   - scope:
-      path: ""
-      type: workexperience
+      path: "_workexperience"
+      type: pages
     values:
       layout: single
       author_profile: true
