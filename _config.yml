@@ -87,6 +87,18 @@ footer:
       icon: "fab fa-linkedin"
       url: "https://linkedin.com/in/psrahul-ml"
 
+links:
+
+
+  - title: Projects
+    url: /Projects/
+  - title: Courses Studied
+    url: /Courses_Studied/
+  - title: Work Experience
+    url: /Work_Experience/
+  - title: Contact
+    url: /contact/
+    
 defaults:
   # _posts
   - scope:
