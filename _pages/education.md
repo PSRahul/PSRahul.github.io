@@ -1,0 +1,4 @@
+---
+permalink: /education/
+title: "Education"
+---

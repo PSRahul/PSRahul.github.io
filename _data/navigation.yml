@@ -5,6 +5,8 @@ main:
     url: /projects/
   - title: "Work Experience"
     url: /workexperience/
+  - title: "Education"
+    url: /education/
   - title: "Tags"
     url: /tags/
   - title: "About"
