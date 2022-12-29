@@ -20,11 +20,11 @@ title: "Education"
 + Introduction to Deep Learning
 + Seminar Deep Learning for Medical Applications
 
-#### Computer Vision
+**Computer Vision**
 
 + Advanced Topics in 3D Computer Vision
 
-#### Programming
+**Programming**
 
 + Advanced Programming
 + Parallel Programming
@@ -37,11 +37,11 @@ title: "Education"
 
 ### Courses
 
-#### Data Science
+**Data Science**
 
 + Numerical and Statistical Methods
 
-#### Programming
+**Programming**
 
 + Programming in C
 + Programming in C++
