@@ -18,18 +18,15 @@ A network design was conceptualized that can be trained end-end on autonomous dr
 
 <center><img src="/assets/images/priordepth1.png" alt="PriorDepth Architecture"></center>.
 
-The DepthNet was trained on a separate sequence using transfer learning techniques to help the model adapt to the KITTI sequence since the model was originally trained on it.
+The DepthNet was trained on a separate sequence using transfer learning techniques to help the model adapt to the KITTI sequence since the model was originally trained on it. The images below show the input video sequence and the predicted depth from the model.
 
 
 <center><img src="/assets/images/priordepth2.gif" alt="Input Video Sequence"></center>.
-<figcaption>Input Video Sequence</figcaption>
 
 <center><img src="/assets/images/priordepth3.gif" alt="Predicted Depth from the Model"></center>.
-<figcaption>Predicted Depth from the Model</figcaption>
 
+The keypoints obtained from trained KeyPointNet are further filtered based on descriptor distance and matching scores to enable a more robust matching. The figures below show the keypoint matches before and application of the intelligent distance based filters.
 
-<center><img src="/assets/images/priordepth2.gif" alt="Input Video Sequence"></center>.
-<figcaption>Optical Flow before Keypoint Filters</figcaption>
+<center><img src="/assets/images/priordepth4.gif" alt="Input Video Sequence"></center>.
 
-<center><img src="/assets/images/priordepth3.gif" alt="Predicted Depth from the Model"></center>.
-<figcaption>Optical Flow after intelligent Keypoint Match Filters/figcaption>
+<center><img src="/assets/images/priordepth5.gif" alt="Predicted Depth from the Model"></center>.
