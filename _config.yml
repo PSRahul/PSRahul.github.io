@@ -113,7 +113,17 @@ defaults:
       related: true
   - scope:
       path: ""
-      type: posts2
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: workexperience
     values:
       layout: single
       author_profile: true
