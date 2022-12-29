@@ -3,9 +3,9 @@ permalink: /education/
 title: "Education"
 ---
 
-## Master of Science
+### Master of Science
  
-[Computational Science and Engineering at Technical University of Munich](https://www.tum.de/studium/studienangebot/detail/computational-science-and-engineering-cse-master-of-science-msc)
+[Computational Science and Engineering](https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc) at [Technical University of Munich](https://www.tum.de/en/)
 
 ### Courses
 
@@ -29,11 +29,11 @@ title: "Education"
 + Advanced Programming
 + Parallel Programming
 
-## Bachelor of Technology
+### Bachelor of Technology
  
-[Mechanical Engineering at SASTRA Deemed University](https://www.sastra.edu/)
+Mechanical Engineering at [SASTRA Deemed University](https://www.sastra.edu/)
 
-### Grade Point Average - 9.1982 out of 10
+Grade Point Average - 9.1982 out of 10
 
 ### Courses
 
