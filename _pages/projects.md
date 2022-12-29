@@ -3,7 +3,12 @@ permalink: /projects/
 title: "Projects"
 ---
 
+# Traditional Computer Vision
 
-# PriorDepth
+1. [Camera Tracking and Pose Estimation](/projects/camtracking/)
 
-[Project Link](/projects/priordepth) 
+
+# Deep Learning for Computer Vision
+1. [PriorDepth](/projects/priordepth/)
+
+
