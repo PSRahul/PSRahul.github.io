@@ -101,7 +101,7 @@ defaults:
       related: true
   - scope:
       path: "_projects"
-      type: pages
+      type: posts
     values:
       layout: single
       author_profile: true
@@ -111,7 +111,7 @@ defaults:
       related: true
   - scope:
       path: "_workexperience"
-      type: pages
+      type: posts
     values:
       layout: single
       author_profile: true
