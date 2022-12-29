@@ -1,6 +1,6 @@
 ---
-permalink: /projects/priordepth/
-title: "PriorDepth"
+permalink: /projects/semanticseg
+title: "Semantic Segmentation of Pets"
 ---
 
 
