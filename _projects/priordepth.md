@@ -6,4 +6,4 @@ title: "Projects"
 
 # PriorDepth
 
-[Project Link](_projects/priordepth.md) 
+Some [Project Link](#) can also be shown.
