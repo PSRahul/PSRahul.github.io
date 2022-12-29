@@ -99,17 +99,27 @@ defaults:
       comments: true
       share: true
       related: true
+  - scope:
+      path: ""
+      type: posts2
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
   # _pages
-  #- scope:
-  #    path: "_pages"
-  #    type: pages
-  #  values:
-  #    layout: single
-  #    author_profile: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
-#category_archive:
-#  type: liquid
-#  path: /categories/
-#tag_archive:
-#  type: liquid
-#  path: /tags/
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
