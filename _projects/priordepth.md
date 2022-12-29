@@ -1,5 +1,5 @@
 ---
-permalink: /projects/priordepth
+permalink: /projects/priordepth/
 title: "PriorDepth"
 ---
 
