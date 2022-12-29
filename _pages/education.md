@@ -3,18 +3,18 @@ permalink: /education/
 title: "Education"
 ---
 
-## Master of Science in Computational Science and Engineering
+## Master of Science
  
-[Technical University of Munich](https://www.tum.de/studium/studienangebot/detail/computational-science-and-engineering-cse-master-of-science-msc)
+[Computational Science and Engineering at Technical University of Munich](https://www.tum.de/studium/studienangebot/detail/computational-science-and-engineering-cse-master-of-science-msc)
 
 ### Courses
 
-#### Data Science
+**Data Science**
 
 + Visual Data Analytics
 + Data Innovation Lab
 
-#### Machine Learning
+**Machine Learning**
 
 + Machine Learning
 + Introduction to Deep Learning
@@ -29,9 +29,9 @@ title: "Education"
 + Advanced Programming
 + Parallel Programming
 
-## Bachelor of Technology in Mechanical Engineering
+## Bachelor of Technology
  
-[SASTRA Deemed University](https://www.sastra.edu/)
+[Mechanical Engineering at SASTRA Deemed University](https://www.sastra.edu/)
 
 ### Grade Point Average - 9.1982 out of 10
 
