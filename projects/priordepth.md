@@ -22,5 +22,14 @@ The DepthNet was trained on a separate sequence using transfer learning techniqu
 
 
 <center><img src="/assets/images/priordepth2.gif" alt="Input Video Sequence"></center>.
+<figcaption>Input Video Sequence</figcaption>
 
 <center><img src="/assets/images/priordepth3.gif" alt="Predicted Depth from the Model"></center>.
+<figcaption>Predicted Depth from the Model</figcaption>
+
+
+<center><img src="/assets/images/priordepth2.gif" alt="Input Video Sequence"></center>.
+<figcaption>Optical Flow before Keypoint Filters</figcaption>
+
+<center><img src="/assets/images/priordepth3.gif" alt="Predicted Depth from the Model"></center>.
+<figcaption>Optical Flow after intelligent Keypoint Match Filters/figcaption>
