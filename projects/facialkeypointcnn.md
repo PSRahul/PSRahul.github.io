@@ -1,6 +1,6 @@
 ---
-permalink: /projects/priordepth/
-title: "PriorDepth"
+permalink: /projects/facialkeypointcnn/
+title: "Facial Keypoint Detector"
 ---
 
 

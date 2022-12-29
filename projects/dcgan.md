@@ -1,6 +1,6 @@
 ---
-permalink: /projects/priordepth/
-title: "PriorDepth"
+permalink: /projects/dcgan/
+title: "Human Face Generator"
 ---
 
 

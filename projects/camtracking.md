@@ -1,6 +1,6 @@
 ---
 permalink: /projects/camtracking/
-title: "Pose Estimation and Camera Tracking"
+title: "Camera Tracking and Pose Estimation"
 ---
 
 
