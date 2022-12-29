@@ -3,7 +3,7 @@ permalink: /projects/camtracking/
 title: "Camera Tracking and Pose Estimation"
 ---
 
-### [GitHub Link](https://github.com/PSRahul/camtracking)
+## [GitHub Link](https://github.com/PSRahul/camtracking)
 
 The project aimed to find the pose and position of a visually feature-rich object from a series of images.
 
