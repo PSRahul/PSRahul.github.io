@@ -1,9 +1,7 @@
 ---
-permalink: /projects/
-title: "Projects"
+permalink: /projects/priordepth
+title: "PriorDepth"
 ---
 
 
 # PriorDepth
-
-Some [Project Link](#) can also be shown.
