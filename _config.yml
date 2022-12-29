@@ -70,10 +70,10 @@ author:
     #  url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    #- label: "Instagram"
-    #  icon: "fab fa-fw fa-instagram"
-    #  url: "https://instagram.com/"
+      url: "https://github.com/PSRahul"
+    - label: "Linkedin"
+      icon: "fab fa-linkedinin-in"
+      url: "https://linkedin.com/in/psrahul-ml"
 
 footer:
   links:
@@ -82,10 +82,10 @@ footer:
     #  url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    #- label: "Instagram"
-    #  icon: "fab fa-fw fa-instagram"
-    #  url: "https://instagram.com/"
+      url: "https://github.com/PSRahul"
+    - label: "Linkedin"
+      icon: "fab fa-linkedinin-in"
+      url: "https://linkedin.com/in/psrahul-ml"
 
 defaults:
   # _posts
