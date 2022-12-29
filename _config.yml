@@ -58,7 +58,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Rahul Parthasarathy Srikanth"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
@@ -84,7 +84,7 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/PSRahul"
     - label: "Linkedin"
-      icon: "fab fa-linkedinin-in"
+      icon: "fab fa-linkedin"
       url: "https://linkedin.com/in/psrahul-ml"
 
 defaults:
