@@ -6,4 +6,4 @@ title: "Projects"
 
 # PriorDepth
 
-[Project Link](/_projects/priordepth) 
+[Project Link](/projects/priordepth) 
