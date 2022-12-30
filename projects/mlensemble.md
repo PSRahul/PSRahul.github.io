@@ -31,7 +31,7 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 #### Results
 
 ##### Individual Models
-<center>
+
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
@@ -64,11 +64,11 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
   </tr>
 </tbody>
 </table>
-</center>
+
 ##### Ensemble Models
 
-<center>
 <style type="text/css">
+    
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
@@ -95,5 +95,5 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
     <td class="tg-3dm3">97.08</td>
   </tr>
 </tbody>
+
 </table>
-</center>
