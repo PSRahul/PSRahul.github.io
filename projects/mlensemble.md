@@ -42,7 +42,7 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 .tg .tg-93m3{background-color:#23c3f1;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
   }
 </style>
-<table class="tg">
+<table class="center">
 <thead>
   <tr>
     <th class="tg-93m3">Model</th>
@@ -78,7 +78,7 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 .tg .tg-93m3{background-color:#23c3f1;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
   }
 </style>
-<table class="tg">
+<table class="center">
 <thead>
   <tr>
     <th class="tg-93m3">Model</th>
