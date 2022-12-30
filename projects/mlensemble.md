@@ -33,20 +33,22 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 ##### Individual Models
 
 <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-pm1l{background-color:#FFF;color:#24292F;text-align:center;vertical-align:middle}
+.tg .tg-baqh{text-align:center;vertical-align:top}
 .tg .tg-3dm3{border-color:inherit;font-family:inherit;text-align:center;vertical-align:top}
-.tg .tg-93m3{background-color:#23c3f1;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
+.tg .tg-a6gw{background-color:#c0c0c0;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
   }
-</style>
-<table class="tg>
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg">
 <thead>
   <tr>
-    <th class="tg-93m3">Model</th>
-    <th class="tg-93m3">Test Set Accuracy<br>(in percentage)</th>
+    <th class="tg-a6gw">Model</th>
+    <th class="tg-a6gw">Test Set Accuracy<br>(in percentage)</th>
   </tr>
 </thead>
 <tbody>
@@ -59,11 +61,11 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
     <td class="tg-3dm3">97.07</td>
   </tr>
   <tr>
-    <td class="tg-3dm3">Support Vector Machines</td>
-    <td class="tg-3dm3">96.46</td>
+    <td class="tg-pm1l">Support Vector Machines</td>
+    <td class="tg-baqh">96.46</td>
   </tr>
 </tbody>
-</table>
+</table></div>
 
 ##### Ensemble Models
 
