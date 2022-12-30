@@ -12,7 +12,7 @@ This project investigates the power of ensemble machine learning models for the 
 + Extra Trees
 + Support Vector Machines
 
-Two varieties of ensembling are constructed. They are:
+Two varieties of ensembling are constructed. They are
 
 #### Ensemble 1 - Soft Voting Classifier
 
@@ -42,7 +42,7 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 .tg .tg-93m3{background-color:#23c3f1;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
   }
 </style>
-<table class="center">
+<table class="tg>
 <thead>
   <tr>
     <th class="tg-93m3">Model</th>
@@ -78,7 +78,7 @@ Stacking Classifier uses a two tier architecture. In the first stage, the output
 .tg .tg-93m3{background-color:#23c3f1;border-color:inherit;font-family:inherit;font-weight:bold;text-align:center;vertical-align:top
   }
 </style>
-<table class="center">
+<table class="tg">
 <thead>
   <tr>
     <th class="tg-93m3">Model</th>
