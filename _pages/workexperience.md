@@ -16,3 +16,15 @@ PyTorch for fast prototyping.
 precision on object detection models.
 + Developed a web app using Plotly, Dash, and Pandas for visualizing experimental data.
 
+## Working Student / Intern- Video Analytics Team
+ 
+### [IPS Intelligent Video Software, Securiton Germany](https://ips.securiton.de/en/index.html) 
+
+July 2021 - September 2021
+
++ Built data and training frameworks for studying the feasibility of deep learning-based solutions for pedestrian detection
+in videos.
++ Managed automated data annotation efforts of 5000+ images and set up data pipelines using SQL to retrieve data
+querying on object categories.
++ Performed exhaustive experiments with models such as the Tensorflow API on GPU cluster for multiple parallel model
+training. Additionally, designed metrics to balance the speed of inference and accuracy of the models.
