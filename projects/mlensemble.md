@@ -5,5 +5,5 @@ title: "Ensemble Methods"
 
 ### Machine Learning Ensemble Methids
 
-<center><img src="/assets/images/mnist.png" alt="Sample Images from MNIST Dataset"></center>.
+<center><img src="/assets/images/mnist.png" alt="Sample Images from MNIST Dataset" width="450" height="450"></center>.
 

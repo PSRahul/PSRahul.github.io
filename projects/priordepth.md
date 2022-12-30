@@ -16,7 +16,7 @@ As a part of Advanced Topics in 3D Computer Vision Practical, this project aimed
 
 A network design was conceptualized that can be trained end-end on autonomous driving datasets such as [KITTI Vision Benchmark Suite](https://www.cvlibs.net/datasets/kitti/). The architecture is shown in the image below.
 
-<center><img src="/assets/images/priordepth/priordepth1.png" alt="PriorDepth Architecture"></center>.
+<center><img src="/assets/images/priordepth/priordepth1.png" alt="PriorDepth Architecture" width="450" height="450"></center>.
 
 The DepthNet was trained on a separate sequence using transfer learning techniques to help the model adapt to the KITTI sequence since the model was originally trained on it. The images below show the input video sequence and the predicted depth from the model.
 
