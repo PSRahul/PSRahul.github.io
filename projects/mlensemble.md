@@ -7,12 +7,12 @@ title: "Ensemble Methods"
 
 <center><img src="/assets/images/ensemble/mnist.png" alt="Sample Images from MNIST Dataset" width="450" height="450"></center>.
 
-This project investigates the power of ensemble machine learning models. The individual components are made up of 
+This project investigates the power of ensemble machine learning models for the MNIST dataset. The individual components are made up of 
 + Random Forests
 + Extra Trees
 + Support Vector Machines
 
-Two varieties of ensembling are constructed
+Two varieties of ensembling are constructed. They are:
 
 #### Ensemble 1 - Soft Voting Classifier
 
