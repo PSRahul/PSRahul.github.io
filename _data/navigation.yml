@@ -1,14 +1,14 @@
 main:
   - title: "Posts"
     url: /posts/
-  - title: "Skills and Achievements"
-    url: /skills/
-  - title: "Projects"
-    url: /projects/
-  - title: "Work Experience"
-    url: /workexperience/
   - title: "Education"
     url: /education/
+  - title: "Work Experience"
+    url: /workexperience/
+  - title: "Projects"
+    url: /projects/
+  - title: "Skills and Achievements"
+    url: /skills/
   - title: "Tags"
     url: /tags/
   - title: "About"

@@ -3,7 +3,7 @@ permalink: /projects/mlensemble/
 title: "Ensemble Methods"
 ---
 
-### Machine Learning Ensemble Methids
+### Machine Learning Ensemble Methods
 
 <center><img src="/assets/images/ensemble/mnist.png" alt="Sample Images from MNIST Dataset" width="450" height="450"></center>.
 
@@ -16,4 +16,12 @@ Two varieties of ensembling are constructed
 
 #### Ensemble 1 - Soft Voting Classifier
 
-<center><img src="/assets/images/ensemble/soft_voting.png" alt="Sample Images from MNIST Dataset" width="450" height="450"></center>.
+<center><img src="/assets/images/ensemble/soft_voting.png" alt="Sample Images from MNIST Dataset" width="600" height="450"></center>.
+
+#### Ensemble 2 - Stacking Classifier
+
+<center><img src="/assets/images/ensemble/stacking.png" alt="Sample Images from MNIST Dataset" width="600" height="450"></center>.
+
+
+
+
