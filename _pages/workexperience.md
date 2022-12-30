@@ -28,3 +28,21 @@ in videos.
 querying on object categories.
 + Performed exhaustive experiments with models such as the Tensorflow API on GPU cluster for multiple parallel model
 training. Additionally, designed metrics to balance the speed of inference and accuracy of the models.
+
+## Student Teaching Assistant - Technical University of Munich
+ 
+### [Introduction to Deep Learning (I2DL)](https://niessner.github.io/I2DL/) 
+
+November 2020 - March 2021
+
++ Responsibilities include holding office hours and supporting preparation of programming exercises.
+
+## Graduate Engineering Trainee
+ 
+### [Ashok Leyland](https://www.ashokleyland.com/in/en) 
+
+July 2017 - August 2018
+
++ Standardized on-boarding of lateral hires as a functional six sigma project in Human Resources.
++ Managed relationships with axle and brake drum suppliers during high product demand time-frames.
++ Worked on reliability measurement of products using warranty claims and spare parts data.

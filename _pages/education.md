@@ -48,3 +48,8 @@ Programming
 + Programming in C
 + Programming in C++
 
+##  Master of Technology
+
+Computational and Experimental Mechanics at [Indian Institute of Technology Madras](https://www.iitm.ac.in/)
+
+Partly completed the master's program specializing in fluid dynamics and computational methods.
