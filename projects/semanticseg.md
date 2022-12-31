@@ -1,5 +1,5 @@
 ---
-permalink: /projects/semanticseg
+permalink: /projects/semanticseg/
 title: "Semantic Segmentation of Pets"
 ---
 
