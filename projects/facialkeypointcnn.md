@@ -12,7 +12,7 @@ THe model was built on PyTorch with MSELoss loss function and AdaGrad Optimizer.
 
 ## Sample Image Results
 
-
-![](/assets/images/keypoint/sample1.png)            | ![](/assets/images/keypoint/sample4.png)
-:-------------------------:|:-------------------------:
-![](/assets/images/keypoint/sample2.png)  | ![](/assets/images/keypoint/sample3.png)
+<center><img src="/assets/images/keypoint/sample1.png" alt="PnP Based Pose Estimation"></center>
+<center><img src="/assets/images/keypoint/sample2.png" alt="PnP Based Pose Estimation"></center>
+<center><img src="/assets/images/keypoint/sample3.png" alt="PnP Based Pose Estimation"></center>
+<center><img src="/assets/images/keypoint/sample4.png" alt="PnP Based Pose Estimation"></center>
