@@ -3,10 +3,6 @@ permalink: /projects/
 title: "Projects"
 ---
 
-## Data Processors
-
-+ [PascalProcessor](/projects/pascalprocessor/)
-
 
 ## Deep Learning for Computer Vision
 
