@@ -1,6 +1,6 @@
 main:
-  - title: "Posts"
-    url: /posts/
+  #- title: "Posts"
+  #  url: /posts/
   - title: "Education"
     url: /education/
   - title: "Work Experience"
@@ -9,7 +9,7 @@ main:
     url: /projects/
   - title: "Skills and Achievements"
     url: /skills/
-  - title: "Tags"
-    url: /tags/
+  #- title: "Tags"
+  #  url: /tags/
   - title: "About"
     url: /about/
