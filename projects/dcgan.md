@@ -33,5 +33,5 @@ Model state dictionaries for models with different dropouts values are provided 
 
 <center><img src="/assets/images/dcgan/dp12dp20.png" alt="PnP Based Pose Estimation"></center>
 <center><img src="/assets/images/dcgan/dp17dp27_2.png" alt="PnP Based Pose Estimation"></center>
-<center><img src="/assets/images/dcgab/dp17dp27.png" alt="PnP Based Pose Estimation"></center>
+<center><img src="/assets/images/dcgan/dp17dp27.png" alt="PnP Based Pose Estimation"></center>
 <center><img src="/assets/images/dcgan/dp16dp20_2.png" alt="PnP Based Pose Estimation"></center>
