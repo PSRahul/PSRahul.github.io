@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Rahul Parthasarathy Srikanth"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Machine Learning, Deep Learning and Computer Vision"
   links:
     #- label: "Website"
     #  icon: "fas fa-fw fa-link"

@@ -9,4 +9,4 @@ I recently completed my master's program in Computational Science and Engineerin
 
 I am now looking for amazing full-time opportunities in machine learning, data science, and computer vision. Feel free to connect with me for any possible leads or positions.
 
-My email address is psrahul.ml (at) gmail.com
+My email address is psrahul.ml(at)gmail.com
