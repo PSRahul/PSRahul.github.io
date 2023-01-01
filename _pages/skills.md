@@ -23,8 +23,11 @@ title: "Skills and Achievements"
 
 ## Achievements
 
+
 + Contributed towards dataset preparation for the CVPR 2022 publication [PhoCaL: A Multi-Modal Dataset for
 Category-Level Object Pose Estimation with Photometrically Challenging Objects](https://arxiv.org/abs/2205.08811).
+
++ Presented and published a blog article about [Synthetic Learning for Medical Data](https://wiki.tum.de/display/dlma/Synthetic+Learning%3A+Learn+From+Distributed+Asynchronized+Discriminator+GAN+Without+Sharing+Medical+Image+Data) for the master seminar.
 
 + Deans Merit List Scholar for Top 2 percent Academic Performance (Bachelor's Program at SASTRA University)
 
