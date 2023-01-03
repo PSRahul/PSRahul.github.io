@@ -20,5 +20,5 @@ My email address is psrahul.ml(at)gmail.com
 </p>
 
 <footer>  
-![](https://komarev.com/ghpvc/?username=PSRahul&style=flat-square)
+
 </footer>  
