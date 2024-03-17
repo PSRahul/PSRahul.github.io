@@ -101,12 +101,6 @@ defaults:
       related: true
   # _pages
   - scope:
-      path: "certs"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-  - scope:
       path: "projects"
       type: pages
     values:

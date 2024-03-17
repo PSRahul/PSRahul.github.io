@@ -5,6 +5,8 @@ main:
   #  url: /education/
   # title: "Work Experience"
   # url: /workexperience/
+  - title: "Certifications"
+    url: /certs/  
   - title: "Projects"
     url: /projects/
   #- title: "Skills and Achievements"
