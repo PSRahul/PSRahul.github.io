@@ -21,6 +21,8 @@ title: "Certifications"
 
 ## LLMs
 
++ [Open Source LLMOps Solutions](https://www.coursera.org/account/accomplishments/verify/HW72W3BZH8J6)
+
 
 ## Generative AI
 + [Build Basic Generative Adversarial Networks (GANs)](https://www.coursera.org/account/accomplishments/certificate/VFFBGY3PD67R)
