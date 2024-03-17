@@ -3,32 +3,31 @@ permalink: /certs/
 title: "Certifications"
 ---
 
-## Certifications
 
-### Languages
+## Languages
 
 + Goethe-Zertifikat B1 German Language Skills
 
-### Cloud Technologies
+## Cloud Technologies
 
 + [Certified AWS Cloud Practioner](https://www.credly.com/badges/b145d826-989e-4fba-8414-57c45f74425a/public_url)
 
-### Specializations
+## Specializations
 
 + [Deep Learning Specialization](https://www.coursera.org/account/accomplishments/specialization/PCW8UKZTWTN9)
 
 + [AI for Medicine Specialization](https://www.coursera.org/account/accomplishments/specialization/HBWCP22RT5SY)
 
 
-### LLMs
+## LLMs
 
 
-### Generative AI
+## Generative AI
 + [Build Basic Generative Adversarial Networks (GANs)](https://www.coursera.org/account/accomplishments/certificate/VFFBGY3PD67R)
 
 + [Build Better Generative Adversarial Networks (GANs)](https://www.coursera.org/account/accomplishments/verify/EGQ2RQS8LSUK)
 
-### Machine Learning
+## Machine Learning
 
 
 + [Structuring Machine Learning Projects](https://www.coursera.org/account/accomplishments/verify/3KR8LXTEX3UT)
