@@ -3,6 +3,10 @@ permalink: /projects/
 title: "Projects"
 ---
 
+## Large Language Models
+
++ [LLM Explorer](https://github.com/PSRahul/LLM-Explorer)
+
 
 ## Deep Learning for Computer Vision
 
@@ -25,7 +29,6 @@ title: "Projects"
 ## Training Frameworks
 
 + [Lightning Fast Trainer](/projects/lightningfasttrainer/)
-
 
 ## Traditional Computer Vision
 
