@@ -7,6 +7,10 @@ title: "Projects"
 
 + [LLM Explorer](https://github.com/PSRahul/LLM-Explorer)
 
+## Generative Models
+
++ [Object Pose Editor with Stable Diffusion]([/projects/dcgan/](https://github.com/PSRahul/image-editor-stable-diffusion))
++ [Human Face Generator](/projects/dcgan/)
 
 ## Deep Learning for Computer Vision
 
@@ -14,9 +18,7 @@ title: "Projects"
 + [Facial Keypoints Detector](/projects/facialkeypointcnn/)
 + [Semantic Segmentation of Pets](/projects/semanticseg/)
 
-## Generative Models
 
-+ [Human Face Generator](/projects/dcgan/)
 
 ## Machine Learning
 
