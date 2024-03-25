@@ -9,7 +9,7 @@ title: "Projects"
 
 ## Generative Models
 
-+ [Object Pose Editor with Stable Diffusion]([/projects/dcgan/](https://github.com/PSRahul/image-editor-stable-diffusion))
++ [Object Pose Editor with Stable Diffusion](https://github.com/PSRahul/image-editor-stable-diffusion)
 + [Human Face Generator](/projects/dcgan/)
 
 ## Deep Learning for Computer Vision
