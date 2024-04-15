@@ -9,6 +9,7 @@ title: "Projects"
 
 ## Generative Models
 
++ [Product Photography with Stable Diffusion and LoRA](https://github.com/PSRahul/product_photography_with_lora_sd)
 + [Object Pose Editor with Stable Diffusion](https://github.com/PSRahul/image-editor-stable-diffusion)
 + [Human Face Generator](/projects/dcgan/)
 
