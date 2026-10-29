@@ -13,6 +13,7 @@ import WritingCard from "@/components/WritingCard.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import { getWritingItems } from "@/utils/getWritingItems";
+import { getPersonSchema } from "@/utils/personSchema";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -26,9 +27,29 @@ const featuredProjects = (
   await getCollection("projects", ({ data }) => data.featured)
 ).sort((a, b) => a.data.order - b.data.order);
 const homePath = getRelativeLocaleUrl(locale, "");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: config.site.title,
+      url: config.site.url,
+      description: config.site.description,
+      publisher: { "@id": new URL("/#person", config.site.url).href },
+    },
+    getPersonSchema(),
+  ],
+};
 ---
 
 <Layout>
+  <script
+    slot="head"
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(structuredData)}
+  />
   <Header />
   <main
     id="main-content"
