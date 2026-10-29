@@ -1,0 +1,47 @@
+---
+import { getEntry, render } from "astro:content";
+import { Image } from "astro:assets";
+import bioPhoto from "@/assets/images/bio-photo.jpg";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+
+const about = await getEntry("pages", "about");
+
+if (!about) {
+  throw new Error(
+    "Missing content entry: `about.md` or `about.mdx` in `src/content/pages/`"
+  );
+}
+
+const { Content } = await render(about);
+---
+
+<Layout
+  title={`${about.data.title} | ${config.site.title}`}
+  description={about.data.description}
+  ogImage={about.data.ogImage}
+  canonicalURL={about.data.canonicalURL}
+>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={about.data.title} class="app-prose">
+    <Image
+      src={bioPhoto}
+      alt="Portrait of Rahul Parthasarathy Srikanth"
+      width={160}
+      height={160}
+      densities={[1, 2]}
+      loading="eager"
+      class="border-border not-prose mb-6 size-32 rounded-full border object-cover sm:size-40"
+    />
+    <Content />
+  </Main>
+
+  <Footer />
+</Layout>

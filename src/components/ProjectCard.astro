@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+type Props = {
+  variant?: "h2" | "h3";
+  project: CollectionEntry<"projects">;
+};
+
+const { variant: Heading = "h3", project } = Astro.props;
+const { title, description, repo } = project.data;
+
+// Projects with a `repo` have no writeup here and link straight to GitHub
+const href =
+  repo ??
+  getRelativeLocaleUrl(Astro.currentLocale ?? "en", `projects/${project.id}`);
+---
+
+<li class="my-5">
+  <a
+    href={href}
+    {...repo && { target: "_blank", rel: "noopener" }}
+    class:list={[
+      "text-accent inline-block text-lg font-medium",
+      "decoration-dashed underline-offset-4 hover:underline",
+      "focus-visible:no-underline focus-visible:underline-offset-0",
+    ]}
+  >
+    <Heading>
+      {title}
+      {
+        repo && (
+          <span class="text-muted-foreground text-sm font-normal">
+            {" "}
+            GitHub ↗
+          </span>
+        )
+      }
+    </Heading>
+  </a>
+  <p>{description}</p>
+</li>
