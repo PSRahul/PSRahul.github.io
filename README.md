@@ -1,6 +1,6 @@
 # psrahul.github.io
 
-Personal site and blog of Rahul Parthasarathy Srikanth, built with [Astro](https://astro.build/) on the [AstroPaper](https://github.com/satnaing/astro-paper) theme (v6.1.0, MIT — see `LICENSE-astro-paper`). It deploys to GitHub Pages through GitHub Actions.
+Personal site and blog of Rahul Parthasarathy Srikanth, built with [Astro](https://astro.build/) on the [AstroPaper](https://github.com/satnaing/astro-paper) theme (v6.1.0, MIT — see [`licenses/astro-paper.txt`](licenses/astro-paper.txt)). It deploys to GitHub Pages through GitHub Actions.
 
 ## Local development
 
@@ -38,6 +38,8 @@ This site holds the canonical copy of each post. Substack and Medium get copies 
      substack: "https://<name>.substack.com/p/<slug>"
      medium: "https://medium.com/@<handle>/<slug>"
    ```
+
+`/rss.xml` carries the full text of each post, with absolute image and link URLs, so feed readers and importers get the whole article rather than a summary.
 
 Posts written only on Substack or Medium show up in the writing list automatically, with a platform badge that links out. This needs `syndication.substack` / `syndication.medium` set in `astro-paper.config.ts`. A nightly Actions run rebuilds the site to pick up new ones. Syndicated copies of local posts are deduplicated by URL or title.
 
