@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import config from "@/config";
+import "katex/dist/katex.min.css";
+
+export async function getStaticPaths() {
+  // Repo-only projects link out to GitHub and get no page here
+  const projects = await getCollection("projects", ({ data }) => !data.repo);
+  return projects.map(project => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+type Props = { project: CollectionEntry<"projects"> };
+
+const { project } = Astro.props;
+const { title, description, category } = project.data;
+const { Content } = await render(project);
+---
+
+<Layout title={`${title} | ${config.site.title}`} description={description}>
+  <Header />
+
+  <Breadcrumb title={title} />
+
+  <Main pageTitle={title} pageDesc={category}>
+    <article class="app-prose max-w-app" data-pagefind-body>
+      <Content />
+    </article>
+  </Main>
+
+  <Footer />
+</Layout>

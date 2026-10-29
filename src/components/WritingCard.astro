@@ -1,0 +1,50 @@
+---
+import type { WritingItem } from "@/utils/getWritingItems";
+import { toTransitionName } from "@/utils/toTransitionName";
+import Datetime from "./Datetime.astro";
+
+type Props = {
+  variant?: "h2" | "h3";
+  item: WritingItem;
+};
+
+const { variant: Heading = "h2", item } = Astro.props;
+const { title, description, url, source, ...dates } = item;
+
+const isExternal = source !== "site";
+const sourceLabel = { substack: "Substack", medium: "Medium" } as const;
+---
+
+<li class="my-6">
+  <a
+    href={url}
+    {...isExternal && { target: "_blank", rel: "noopener" }}
+    class:list={[
+      "text-accent inline-block text-lg font-medium",
+      "decoration-dashed underline-offset-4 hover:underline",
+      "focus-visible:no-underline focus-visible:underline-offset-0",
+    ]}
+  >
+    <Heading transition:name={isExternal ? undefined : toTransitionName(title)}>
+      {title}
+      {
+        isExternal && (
+          <span class="sr-only">
+            (opens {sourceLabel[source]} in a new tab)
+          </span>
+        )
+      }
+    </Heading>
+  </a>
+  <div class="flex flex-wrap items-center gap-x-3">
+    <Datetime {...dates} />
+    {
+      isExternal && (
+        <span class="border-border text-muted-foreground rounded border px-1.5 text-xs">
+          on {sourceLabel[source]} ↗
+        </span>
+      )
+    }
+  </div>
+  {description && <p>{description}</p>}
+</li>

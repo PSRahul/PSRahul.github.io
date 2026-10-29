@@ -1,27 +1,66 @@
-# Minimal Mistakes remote theme starter
+# psrahul.github.io
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+Personal site and blog of Rahul Parthasarathy Srikanth, built with [Astro](https://astro.build/) on the [AstroPaper](https://github.com/satnaing/astro-paper) theme (v6.1.0, MIT — see `LICENSE-astro-paper`). It deploys to GitHub Pages through GitHub Actions.
 
-Contains basic configuration to get you a site with:
+## Local development
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+Requires Node.js 22.12 or newer.
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # type-check, build to dist/, and build the Pagefind search index
+npm run preview   # serve dist/
+```
 
----
+## Where things live
 
-## Troubleshooting
+| Path                           | What                                                                |
+| ------------------------------ | ------------------------------------------------------------------- |
+| `astro-paper.config.ts`        | Site title, author, socials, Substack/Medium handles                |
+| `src/content/posts/`           | Blog posts (`/writing/<slug>/`). `_template.md` is a starter        |
+| `src/content/projects/`        | Projects (`/projects/<slug>/`). Set `repo:` for GitHub-only entries |
+| `src/content/pages/about.md`   | About page: bio, experience, education, certifications              |
+| `public/assets/`               | Images and `pdf/resume.pdf`, served at `/assets/...`                |
+| `src/loaders/externalFeeds.ts` | Pulls Substack/Medium RSS into the writing list at build time       |
 
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
+## Publishing a post (POSSE)
 
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+This site holds the canonical copy of each post. Substack and Medium get copies so the post reaches their audiences.
+
+1. Copy `src/content/posts/_template.md` to `src/content/posts/<slug>.md`, write the post, set `draft: false`, and push to `main`.
+2. **Medium:** go to _Import a story_ and paste `https://psrahul.github.io/writing/<slug>/`. Medium sets `rel=canonical` back to this site. Check it on the published story.
+3. **Substack:** paste the same article as a new post or newsletter. Put `Originally published at https://psrahul.github.io/writing/<slug>/` at the top, because Substack can't set a canonical link.
+4. Add the two URLs to the post's frontmatter so the post page shows "Also published on":
+
+   ```yaml
+   syndication:
+     substack: "https://<name>.substack.com/p/<slug>"
+     medium: "https://medium.com/@<handle>/<slug>"
+   ```
+
+Posts written only on Substack or Medium show up in the writing list automatically, with a platform badge that links out. This needs `syndication.substack` / `syndication.medium` set in `astro-paper.config.ts`. A nightly Actions run rebuilds the site to pick up new ones. Syndicated copies of local posts are deduplicated by URL or title.
+
+## Comments (Giscus)
+
+Comments are stored in this repo's GitHub Discussions and show under posts once configured.
+
+1. Enable **Discussions** in the repository settings and create a category named `Comments` (type: Announcements, so only Giscus creates threads).
+2. Install the [giscus app](https://github.com/apps/giscus) on this repository.
+3. On [giscus.app](https://giscus.app), enter `PSRahul/PSRahul.github.io`, pick the `Comments` category, and copy `data-repo-id` and `data-category-id` into `comments.giscus` in `astro-paper.config.ts`.
+
+## Analytics (GoatCounter)
+
+Page views are counted with [GoatCounter](https://www.goatcounter.com/). It sets no cookies and stores no personal data, so no consent banner is needed ([privacy policy](https://www.goatcounter.com/help/privacy)). Sign up, then put your site code in `analytics.goatcounter` in `astro-paper.config.ts`. The script is only included in production builds.
+
+## Images
+
+Project images are WebP files in `public/assets/images/`. Convert new GIFs or PNGs before adding them; `sharp` is already a dependency:
+
+```bash
+node -e 'require("sharp")(process.argv[1],{animated:true}).webp({quality:70}).toFile(process.argv[2])' in.gif out.webp
+```
+
+## Deployment
+
+`.github/workflows/deploy.yml` builds on every PR and deploys `main` to GitHub Pages. It also runs nightly and on manual dispatch. In the repository settings, Pages → Source must be set to **GitHub Actions**.
