@@ -1,11 +1,11 @@
 version: 2
 updates:
-  # Minor and patch bumps land as one weekly PR; majors come separately so
+  # Minor and patch bumps land as one monthly PR; majors come separately so
   # theme-breaking upgrades (Astro, Tailwind, Vite) can be checked one by one.
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       minor-and-patch:
         update-types: [minor, patch]
