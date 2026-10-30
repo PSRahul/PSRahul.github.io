@@ -15,6 +15,11 @@ import BackButton from "./_components/BackButton.astro";
 import BackToTopButton from "./_components/BackToTopButton.astro";
 import AdjacentPostNav from "./_components/AdjacentPostNav.astro";
 import AlsoOn from "./_components/AlsoOn.astro";
+import CiteAs from "./_components/CiteAs.astro";
+import SeriesBox from "./_components/SeriesBox.astro";
+import TableOfContents from "./_components/TableOfContents.astro";
+import { getReadingTime } from "@/utils/readingTime";
+import { useTranslations } from "@/i18n";
 import Comments from "@/components/Comments.astro";
 import config from "@/config";
 import "katex/dist/katex.min.css";
@@ -61,6 +66,7 @@ type Props = {
 
 const { post, prevPost, nextPost } = Astro.props;
 const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
 
 const {
   title,
@@ -73,9 +79,18 @@ const {
   tags,
   hideEditPost,
   syndication,
+  discussion,
+  toc,
+  cite,
+  author,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const readingTime = getReadingTime(post.body);
+const postUrl = new URL(
+  getPostUrl(post.id, post.filePath, locale),
+  config.site.url
+).href;
 
 let ogImageUrl: string | undefined;
 
@@ -122,8 +137,12 @@ const ogImage = ogImageUrl
       {title}
     </h1>
 
-    <div class="my-2 flex items-center gap-2">
+    <div class="my-2 flex flex-wrap items-center gap-x-2">
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
+      <span aria-hidden="true" class="text-muted-foreground">·</span>
+      <span class="text-muted-foreground text-lg italic">
+        {t.post.minRead.replace("{{minutes}}", String(readingTime))}
+      </span>
       <span
         aria-hidden="true"
         class:list={[
@@ -136,6 +155,10 @@ const ogImage = ogImageUrl
       <EditPost {hideEditPost} {post} class="max-sm:hidden" />
     </div>
 
+    <SeriesBox {post} />
+
+    {toc && <TableOfContents {headings} />}
+
     <article
       id="article"
       class:list={[
@@ -147,7 +170,9 @@ const ogImage = ogImageUrl
       <Content />
     </article>
 
-    <AlsoOn {syndication} />
+    {cite && <CiteAs {title} {author} {pubDatetime} url={postUrl} />}
+
+    <AlsoOn {syndication} {discussion} />
 
     <hr class="my-8 border-dashed" />
 

@@ -6,32 +6,43 @@ import Header from "@/components/Header.astro";
 import Main from "@/components/Main.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Card from "@/components/Card.astro";
+import NoteItem from "@/components/NoteItem.astro";
+import PaperCard from "@/components/PaperCard.astro";
 import Footer from "@/components/Footer.astro";
 import Pagination from "@/components/Pagination.astro";
-import { getUniqueTags } from "@/utils/getUniqueTags";
+import { getAllTags } from "@/utils/getAllTags";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getSortedNotes } from "@/utils/getNotesAndPapers";
 import { slugifyAll } from "@/utils/slugify";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
-  const tags = getUniqueTags(posts);
+  const notes = await getSortedNotes();
+  const papers = await getCollection("papers");
+  const tags = await getAllTags();
 
   return tags.flatMap(({ tag, tagName }) => {
-    const tagPosts = getSortedPosts(
-      posts.filter(({ data }) => slugifyAll(data.tags).includes(tag))
-    );
+    const hasTag = ({ data }: { data: { tags: string[] } }) =>
+      slugifyAll(data.tags).includes(tag);
+    const tagPosts = getSortedPosts(posts.filter(hasTag));
 
+    // Posts are paginated; notes and papers are listed once, on page 1
     return paginate(tagPosts, {
       params: { tag },
-      props: { tagName },
+      props: {
+        tagName,
+        tagNotes: notes.filter(hasTag),
+        tagPapers: papers.filter(hasTag),
+      },
       pageSize: config.posts.perPage,
     });
   });
 }
 
-const { page, tagName } = Astro.props;
+const { page, tagName, tagNotes, tagPapers } = Astro.props;
+const isFirstPage = page.currentPage === 1;
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
@@ -49,6 +60,32 @@ const t = useTranslations(locale);
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>
+
+    {
+      isFirstPage && tagNotes.length > 0 && (
+        <section class="mt-8">
+          <h2 class="text-xl font-semibold">{t.pages.notesTitle}</h2>
+          <ul class="mt-2">
+            {tagNotes.map(note => (
+              <NoteItem {note} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      isFirstPage && tagPapers.length > 0 && (
+        <section class="mt-8">
+          <h2 class="text-xl font-semibold">{t.pages.papersTitle}</h2>
+          <ul>
+            {tagPapers.map(paper => (
+              <PaperCard {paper} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </Main>
 
   <Pagination {page} />

@@ -44,7 +44,8 @@ const config: ResolvedAstroPaperConfig = {
       : null,
   goatcounter: userConfig.analytics?.goatcounter ?? "",
   socials: [
-    ...(userConfig.socials ?? []),
+    // Entries with an empty url are placeholders, e.g. Google Scholar until set
+    ...(userConfig.socials ?? []).filter(({ url }) => url),
     ...(userConfig.syndication?.substack
       ? [
           {

@@ -1,0 +1,81 @@
+---
+import type { MarkdownHeading } from "astro";
+import { useTranslations } from "@/i18n";
+
+type Props = { headings: MarkdownHeading[] };
+
+const t = useTranslations(Astro.currentLocale);
+
+// The inline remark-toc heading is itself an h2; leave it out
+const items = Astro.props.headings.filter(
+  ({ depth, slug }) => depth >= 2 && depth <= 3 && slug !== "table-of-contents"
+);
+---
+
+{
+  items.length >= 3 && (
+    <nav
+      id="sticky-toc"
+      aria-label={t.post.onThisPage}
+      class="fixed top-28 hidden max-h-[calc(100svh-10rem)] w-56 overflow-y-auto text-sm xl:block"
+      style={{ insetInlineStart: "calc(50% + 24rem + 2rem)" }}
+    >
+      <p class="text-muted-foreground mb-2 font-semibold">
+        {t.post.onThisPage}
+      </p>
+      <ul class="border-border space-y-1.5 border-s">
+        {items.map(({ depth, slug, text }) => (
+          <li class:list={[depth === 3 ? "ps-6" : "ps-3"]}>
+            <a
+              href={`#${slug}`}
+              data-toc-link={slug}
+              class="hover:text-accent text-muted-foreground -ms-px block border-s border-transparent ps-0 leading-snug"
+            >
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<script>
+  let observer: IntersectionObserver | undefined;
+
+  function bindToc() {
+    observer?.disconnect();
+    const links = document.querySelectorAll<HTMLAnchorElement>(
+      "#sticky-toc [data-toc-link]"
+    );
+    if (links.length === 0) return;
+
+    const setActive = (slug: string) => {
+      for (const link of links) {
+        const active = link.dataset.tocLink === slug;
+        link.classList.toggle("text-accent", active);
+        link.classList.toggle("text-muted-foreground", !active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      }
+    };
+
+    // Highlight the last heading that has scrolled past the top third
+    observer = new IntersectionObserver(
+      entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "0px 0px -66% 0px" }
+    );
+
+    for (const link of links) {
+      const heading = document.getElementById(link.dataset.tocLink ?? "");
+      if (heading) observer.observe(heading);
+    }
+  }
+
+  document.addEventListener("astro:page-load", bindToc);
+</script>

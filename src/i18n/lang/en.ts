@@ -5,6 +5,8 @@ export default {
     home: "Home",
     posts: "Writing",
     projects: "Projects",
+    notes: "Notes",
+    papers: "Papers",
     tags: "Tags",
     about: "About",
     archives: "Archives",
@@ -12,6 +14,11 @@ export default {
   },
   post: {
     alsoOn: "Also published on",
+    discussOn: "Discuss on",
+    minRead: "{{minutes}} min read",
+    onThisPage: "On this page",
+    citeAs: "Cite this post",
+    orBibtex: "Or with BibTeX:",
     publishedAt: "Published at",
     updatedAt: "Updated",
     sharePostIntro: "Share this post:",
@@ -23,6 +30,13 @@ export default {
     editPage: "Edit page",
     previousPost: "Previous Post",
     nextPost: "Next Post",
+  },
+  series: {
+    label: "Series",
+    partOf: "Part {{current}} of {{total}} in",
+    pageDesc: "All parts of the series, in reading order.",
+    indexDesc: "Multi-part posts, grouped.",
+    parts: "parts",
   },
   pagination: {
     prev: "Prev",
@@ -38,23 +52,37 @@ export default {
     allProjects: "All Projects",
     subscribe: "Get new posts by email",
     subscribeDesc: "Every post also goes out as a newsletter on Substack.",
+    startHere: "New here? Start here",
   },
   footer: {
     copyright: "Copyright",
     allRightsReserved: "All rights reserved.",
+    startHere: "Start here",
+    now: "Now",
+    uses: "Uses",
+    colophon: "Colophon",
+    rss: "RSS",
   },
   pages: {
     tagTitle: "Tag",
-    tagDesc: "All the articles with the tag",
+    tagDesc: "Everything tagged",
 
     tagsTitle: "Tags",
-    tagsDesc: "All the tags used in posts.",
+    tagsDesc: "All the tags used in posts, notes and papers.",
 
     postsTitle: "Writing",
     postsDesc: "Everything I've written, here and on Substack and Medium.",
 
     projectsTitle: "Projects",
     projectsDesc: "Things I've built, from research to tooling.",
+
+    notesTitle: "Notes",
+    notesDesc: "Short notes and things I learned, smaller than a post.",
+
+    papersTitle: "Papers",
+    papersDesc: "ML papers I've read or plan to, with my notes.",
+
+    lastUpdated: "Last updated",
 
     archivesTitle: "Archives",
     archivesDesc: "All the articles I've archived.",

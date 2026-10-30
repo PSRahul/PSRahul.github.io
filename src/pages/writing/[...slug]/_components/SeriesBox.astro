@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getPostUrl } from "@/utils/getPostPaths";
+import { getSeriesPosts, getSeriesUrlSlug } from "@/utils/getSeries";
+import { useTranslations } from "@/i18n";
+
+type Props = { post: CollectionEntry<"posts"> };
+
+const { post } = Astro.props;
+const { series } = post.data;
+const t = useTranslations(Astro.currentLocale);
+
+const parts = series ? await getSeriesPosts(series) : [];
+const current = parts.findIndex(part => part.id === post.id) + 1;
+---
+
+{
+  series && parts.length > 1 && (
+    <aside
+      aria-label={t.series.label}
+      class="border-border bg-muted/30 mt-6 rounded border p-4 text-sm"
+    >
+      <p class="font-medium">
+        {t.series.partOf
+          .replace("{{current}}", String(current))
+          .replace("{{total}}", String(parts.length))}{" "}
+        <a
+          href={getRelativeLocaleUrl(
+            Astro.currentLocale ?? "en",
+            `series/${getSeriesUrlSlug(series)}`
+          )}
+          class="text-accent underline decoration-dashed underline-offset-4"
+        >
+          {series}
+        </a>
+      </p>
+      <ol class="mt-2 list-decimal space-y-1 ps-5">
+        {parts.map(part =>
+          part.id === post.id ? (
+            <li aria-current="page" class="font-semibold">
+              {part.data.title}
+            </li>
+          ) : (
+            <li>
+              <a
+                href={getPostUrl(part.id, part.filePath, Astro.currentLocale)}
+                class="hover:text-accent underline decoration-dashed underline-offset-4"
+              >
+                {part.data.title}
+              </a>
+            </li>
+          )
+        )}
+      </ol>
+    </aside>
+  )
+}

@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
@@ -28,6 +29,25 @@ const t = useTranslations(locale);
   <Breadcrumb />
 
   <Main pageTitle={t.pages.postsTitle} pageDesc={t.pages.postsDesc}>
+    <p class="text-muted-foreground -mt-4 mb-2 text-sm">
+      <a
+        href={getRelativeLocaleUrl(locale, "tags")}
+        class="hover:text-accent underline decoration-dashed underline-offset-4"
+        >{t.nav.tags}</a
+      >
+      ·
+      <a
+        href={getRelativeLocaleUrl(locale, "series")}
+        class="hover:text-accent underline decoration-dashed underline-offset-4"
+        >{t.series.label}</a
+      >
+      ·
+      <a
+        href="/rss.xml"
+        class="hover:text-accent underline decoration-dashed underline-offset-4"
+        >{t.footer.rss}</a
+      >
+    </p>
     <ul>
       {page.data.map(item => <WritingCard item={item} />)}
     </ul>

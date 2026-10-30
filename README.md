@@ -15,14 +15,34 @@ npm run preview   # serve dist/
 
 ## Where things live
 
-| Path                           | What                                                                |
-| ------------------------------ | ------------------------------------------------------------------- |
-| `astro-paper.config.ts`        | Site title, author, socials, Substack/Medium handles                |
-| `src/content/posts/`           | Blog posts (`/writing/<slug>/`). `_template.md` is a starter        |
-| `src/content/projects/`        | Projects (`/projects/<slug>/`). Set `repo:` for GitHub-only entries |
-| `src/content/pages/about.md`   | About page: bio, experience, education, certifications              |
-| `public/assets/`               | Images and `pdf/resume.pdf`, served at `/assets/...`                |
-| `src/loaders/externalFeeds.ts` | Pulls Substack/Medium RSS into the writing list at build time       |
+| Path                           | What                                                                          |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| `astro-paper.config.ts`        | Site title, author, socials (incl. Google Scholar / Hugging Face), handles    |
+| `src/content/posts/`           | Posts (`/writing/<slug>/`). Start from `_template.md` or `_template.mdx`      |
+| `src/content/notes/`           | Short notes / TILs (`/notes/<slug>/`, feed at `/notes/rss.xml`)               |
+| `src/content/papers/`          | Reading list (`/papers/`). A paper with a body gets its own page              |
+| `src/content/projects/`        | Projects (`/projects/<slug>/`). Set `repo:` for GitHub-only entries           |
+| `src/content/pages/`           | `about`, `start-here`, and `now` / `uses` / `colophon` (served at `/<name>/`) |
+| `src/components/mdx/`          | `Figure` and `Embed` (Hugging Face Space, YouTube, Colab) for `.mdx` posts    |
+| `public/assets/`               | Images and `pdf/resume.pdf`, served at `/assets/...`                          |
+| `src/loaders/externalFeeds.ts` | Pulls Substack/Medium RSS into the writing list at build time                 |
+
+### Post options
+
+Set in a post's frontmatter (all optional):
+
+- `featured: true`: starred in lists and shown on `/start-here/`.
+- `series: "Name"`: posts sharing a name get a "Part N of M" box and a `/series/<name>/` page.
+- `discussion: { hackernews, reddit, linkedin }`: thread URLs, shown as "Discuss on".
+- `toc: false`: hides the sticky table of contents (shown on wide screens when a post has 3+ headings).
+- `cite: false`: hides the "Cite this post" / BibTeX block.
+
+### Now and Uses
+
+`src/content/pages/now.md` and `uses.md` are skeletons with `TODO(Rahul)` comments. Once they're filled in, bump `updated:`, then list them:
+
+- [nownownow.com](https://nownownow.com/about): submit the `/now/` URL.
+- [uses.tech](https://uses.tech): open a PR to [wesbos/awesome-uses](https://github.com/wesbos/awesome-uses).
 
 ## Publishing a post (POSSE)
 

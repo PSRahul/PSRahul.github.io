@@ -1,0 +1,53 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import { hasPaperPage } from "@/utils/getNotesAndPapers";
+import config from "@/config";
+import "katex/dist/katex.min.css";
+
+export async function getStaticPaths() {
+  const papers = (await getCollection("papers")).filter(hasPaperPage);
+  return papers.map(paper => ({
+    params: { slug: paper.id },
+    props: { paper },
+  }));
+}
+
+type Props = { paper: CollectionEntry<"papers"> };
+
+const { paper } = Astro.props;
+const { title, authors, venue, year, url, rating } = paper.data;
+const { Content } = await render(paper);
+---
+
+<Layout
+  title={`${title} | ${config.site.title}`}
+  description={`Notes on ${title} (${venue} ${year}).`}
+>
+  <Header />
+
+  <Breadcrumb title={title} />
+
+  <Main pageTitle={title} pageDesc={`${authors} · ${venue} ${year}`}>
+    <p class="-mt-4 mb-6 flex flex-wrap gap-x-4 text-sm">
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener"
+        class="text-accent underline decoration-dashed underline-offset-4"
+      >
+        Read the paper ↗
+      </a>
+      {rating && <span class="text-muted-foreground">Rating: {rating}/5</span>}
+    </p>
+    <article class="app-prose max-w-app" data-pagefind-body>
+      <Content />
+    </article>
+  </Main>
+
+  <Footer />
+</Layout>

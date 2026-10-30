@@ -1,0 +1,41 @@
+---
+# Copy to `src/content/posts/<slug>.mdx` for a post with figures or embeds.
+# Plain posts: use _template.md instead. Files starting with "_" are never published.
+title: "Post title"
+description: "One or two sentences shown in the writing list, RSS and search results."
+pubDatetime: 2026-01-01T09:00:00Z
+tags:
+  - machine-learning
+draft: true
+# series: "Diffusion from scratch"   # links posts as "Part N of M"
+# toc: false                         # hide the sticky table of contents
+# cite: false                        # hide the "Cite this post" block
+# discussion:
+#   hackernews: "https://news.ycombinator.com/item?id=…"
+#   reddit: "https://www.reddit.com/r/MachineLearning/comments/…"
+#   linkedin: "https://www.linkedin.com/posts/…"
+---
+
+import Figure from "@/components/mdx/Figure.astro";
+import Embed from "@/components/mdx/Embed.astro";
+
+Intro paragraph.
+
+## Figures
+
+<Figure
+  src="/assets/images/priordepth/priordepth1.webp"
+  alt="Describe what the image shows"
+  caption="Caption shown under the image."
+/>
+
+## Interactive demos
+
+<Embed kind="hf-space" id="owner/space-name" title="Live demo" />
+
+<Embed kind="colab" id="https://colab.research.google.com/github/PSRahul/repo/blob/main/notebook.ipynb" title="Notebook" />
+
+## Callouts
+
+> [!NOTE]
+> Callouts use GitHub syntax: NOTE, TIP, IMPORTANT, WARNING, CAUTION.

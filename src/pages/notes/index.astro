@@ -1,0 +1,49 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import NoteItem from "@/components/NoteItem.astro";
+import Footer from "@/components/Footer.astro";
+import { getSortedNotes } from "@/utils/getNotesAndPapers";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const notes = await getSortedNotes();
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Layout
+  title={`${t.pages.notesTitle} | ${config.site.title}`}
+  description={t.pages.notesDesc}
+>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={t.pages.notesTitle} pageDesc={t.pages.notesDesc}>
+    <p class="text-muted-foreground -mt-4 mb-6 text-sm">
+      <a
+        href="/notes/rss.xml"
+        class="hover:text-accent underline decoration-dashed underline-offset-4"
+      >
+        {t.footer.rss}
+      </a>
+    </p>
+    {
+      notes.length > 0 ? (
+        <ul>
+          {notes.map(note => (
+            <NoteItem {note} />
+          ))}
+        </ul>
+      ) : (
+        <p class="text-muted-foreground">
+          No notes yet. The first one is coming soon.
+        </p>
+      )
+    }
+  </Main>
+
+  <Footer />
+</Layout>

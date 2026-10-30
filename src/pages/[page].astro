@@ -1,0 +1,54 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import dayjs from "dayjs";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+export async function getStaticPaths() {
+  // Pages with their own route file render themselves
+  const OWN_ROUTES = new Set(["about", "start-here"]);
+  const pages = await getCollection("pages", ({ id }) => !OWN_ROUTES.has(id));
+  return pages.map(page => ({ params: { page: page.id }, props: { page } }));
+}
+
+type Props = { page: CollectionEntry<"pages"> };
+
+const { page } = Astro.props;
+const { title, description, ogImage, canonicalURL, updated } = page.data;
+const { Content } = await render(page);
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Layout
+  title={`${title} | ${config.site.title}`}
+  {description}
+  {ogImage}
+  {canonicalURL}
+>
+  <Header />
+
+  <Breadcrumb title={title} />
+
+  <Main pageTitle={title} pageDesc={description} class="app-prose">
+    {
+      updated && (
+        <p class="text-muted-foreground not-prose -mt-4 mb-6 text-sm">
+          {t.pages.lastUpdated}:{" "}
+          <time datetime={updated.toISOString()}>
+            {dayjs(updated).format("D MMMM YYYY")}
+          </time>
+        </p>
+      )
+    }
+    <article data-pagefind-body>
+      <Content />
+    </article>
+  </Main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,79 @@
+---
+/**
+ * Embeds for interactive ML posts (.mdx only).
+ *
+ *   import Embed from "@/components/mdx/Embed.astro";
+ *   <Embed kind="hf-space" id="owner/space-name" title="Depth demo" />
+ *   <Embed kind="youtube" id="dQw4w9WgXcQ" title="Talk recording" />
+ *   <Embed kind="colab" id="https://colab.research.google.com/github/…" title="Notebook" />
+ *
+ * Colab refuses to load in iframes, so `colab` renders a button instead.
+ */
+type Props = {
+  kind: "hf-space" | "youtube" | "colab";
+  /** HF: "owner/space"; YouTube: video id; Colab: notebook URL */
+  id: string;
+  title: string;
+  /** iframe height in px (HF Spaces only) */
+  height?: number;
+};
+
+const { kind, id, title, height = 600 } = Astro.props;
+
+// HF serves each Space at <owner>-<space>.hf.space; dots and underscores become dashes
+const hfSrc = `https://${id.replace("/", "-").replace(/[._]/g, "-").toLowerCase()}.hf.space`;
+---
+
+{
+  kind === "hf-space" && (
+    <figure>
+      <iframe
+        src={hfSrc}
+        {title}
+        loading="lazy"
+        class="border-border w-full rounded border"
+        style={{ height: `${height}px` }}
+        allow="clipboard-write"
+      />
+      <figcaption class="text-center">
+        {title} ·{" "}
+        <a
+          href={`https://huggingface.co/spaces/${id}`}
+          target="_blank"
+          rel="noopener"
+        >
+          Open on Hugging Face ↗
+        </a>
+      </figcaption>
+    </figure>
+  )
+}
+{
+  kind === "youtube" && (
+    <figure>
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${id}`}
+        {title}
+        loading="lazy"
+        class="aspect-video w-full rounded"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+      <figcaption class="text-center">{title}</figcaption>
+    </figure>
+  )
+}
+{
+  kind === "colab" && (
+    <p>
+      <a
+        href={id}
+        target="_blank"
+        rel="noopener"
+        class="border-border hover:text-accent inline-flex items-center gap-2 rounded border px-3 py-1.5 font-medium no-underline"
+      >
+        Open “{title}” in Colab ↗
+      </a>
+    </p>
+  )
+}

@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import PaperCard from "@/components/PaperCard.astro";
+import Footer from "@/components/Footer.astro";
+import { PAPER_STATUSES } from "@/content.config";
+import { slugifyStr } from "@/utils/slugify";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const papers = (await getCollection("papers")).sort(
+  (a, b) =>
+    (b.data.readDate?.getTime() ?? 0) - (a.data.readDate?.getTime() ?? 0) ||
+    b.data.year - a.data.year
+);
+
+const statusLabel = {
+  reading: "Reading now",
+  read: "Read",
+  "to-read": "To read",
+} satisfies Record<(typeof PAPER_STATUSES)[number], string>;
+
+const groups = PAPER_STATUSES.map(status => ({
+  status,
+  papers: papers.filter(paper => paper.data.status === status),
+})).filter(group => group.papers.length > 0);
+
+const tags = [
+  ...new Map(
+    papers.flatMap(({ data }) => data.tags).map(tag => [slugifyStr(tag), tag])
+  ),
+].sort(([a], [b]) => a.localeCompare(b));
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<Layout
+  title={`${t.pages.papersTitle} | ${config.site.title}`}
+  description={t.pages.papersDesc}
+>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={t.pages.papersTitle} pageDesc={t.pages.papersDesc}>
+    {
+      tags.length > 1 && (
+        <div
+          id="paper-filters"
+          role="group"
+          aria-label="Filter by tag"
+          class="flex flex-wrap gap-2 text-sm"
+        >
+          <button
+            type="button"
+            data-filter=""
+            aria-pressed="true"
+            class="border-border hover:border-accent aria-pressed:border-accent aria-pressed:text-accent rounded border px-2 py-0.5"
+          >
+            All
+          </button>
+          {tags.map(([slug, label]) => (
+            <button
+              type="button"
+              data-filter={slug}
+              aria-pressed="false"
+              class="border-border hover:border-accent aria-pressed:border-accent aria-pressed:text-accent rounded border px-2 py-0.5"
+            >
+              #{label}
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      groups.map(({ status, papers }) => (
+        <section class="mt-8" data-paper-group>
+          <h2 class="text-xl font-semibold">{statusLabel[status]}</h2>
+          <ul>
+            {papers.map(paper => (
+              <PaperCard {paper} />
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </Main>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const chips = document.querySelectorAll<HTMLButtonElement>(
+      "#paper-filters [data-filter]"
+    );
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        const filter = chip.dataset.filter ?? "";
+        for (const other of chips) {
+          other.setAttribute("aria-pressed", String(other === chip));
+        }
+        for (const card of document.querySelectorAll<HTMLElement>(
+          "[data-paper]"
+        )) {
+          const tags = (card.dataset.tags ?? "").split(" ");
+          card.hidden = filter !== "" && !tags.includes(filter);
+        }
+        // Hide status groups left empty by the filter
+        for (const group of document.querySelectorAll<HTMLElement>(
+          "[data-paper-group]"
+        )) {
+          group.hidden = !group.querySelector("[data-paper]:not([hidden])");
+        }
+      });
+    }
+  });
+</script>

@@ -52,6 +52,10 @@ export default defineAstroPaperConfig({
   socials: [
     { name: "github", url: "https://github.com/PSRahul" },
     { name: "linkedin", url: "https://linkedin.com/in/psrahul-ml" },
+    // Fill in to show the icon, e.g. "https://scholar.google.com/citations?user=…"
+    { name: "googlescholar", url: "", linkTitle: "Rahul PS on Google Scholar" },
+    // e.g. "https://huggingface.co/<username>"
+    { name: "huggingface", url: "", linkTitle: "Rahul PS on Hugging Face" },
   ],
   shareLinks: [
     { name: "linkedin", url: "https://www.linkedin.com/sharing/share-offsite/?url=" },
