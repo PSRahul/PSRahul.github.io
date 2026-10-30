@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import { postFilter } from "@/utils/postFilter";
+import { getSeriesUrlSlug } from "@/utils/getSeries";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const posts = (
+  await getCollection("posts", ({ data }) => !data.draft && !!data.series)
+).filter(postFilter);
+
+// series name → number of parts
+const counts = new Map<string, { name: string; parts: number }>();
+for (const { data } of posts) {
+  const slug = getSeriesUrlSlug(data.series!);
+  const entry = counts.get(slug) ?? { name: data.series!, parts: 0 };
+  entry.parts += 1;
+  counts.set(slug, entry);
+}
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+---
+
+<Layout title={`${t.series.label} | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={t.series.label} pageDesc={t.series.indexDesc}>
+    <ul class="space-y-3">
+      {
+        [...counts].map(([slug, { name, parts }]) => (
+          <li>
+            <a
+              href={getRelativeLocaleUrl(locale, `series/${slug}`)}
+              class="text-accent text-lg font-medium decoration-dashed underline-offset-4 hover:underline"
+            >
+              {name}
+            </a>
+            <span class="text-muted-foreground ms-2 text-sm">
+              {parts} {t.series.parts}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+
+  <Footer />
+</Layout>

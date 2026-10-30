@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@/utils/slugify";
+import { getPaperUrl, hasPaperPage } from "@/utils/getNotesAndPapers";
+
+type Props = { paper: CollectionEntry<"papers"> };
+
+const { paper } = Astro.props;
+const { title, authors, venue, year, url, status, rating, tags } = paper.data;
+const hasPage = hasPaperPage(paper);
+---
+
+<li
+  class="border-border my-4 rounded border p-4"
+  data-paper
+  data-status={status}
+  data-tags={tags.map(slugifyStr).join(" ")}
+>
+  <a
+    href={getPaperUrl(paper, Astro.currentLocale)}
+    {...!hasPage && { target: "_blank", rel: "noopener" }}
+    class="text-accent font-medium decoration-dashed underline-offset-4 hover:underline"
+  >
+    {title}
+  </a>
+  <p class="text-muted-foreground mt-1 text-sm">{authors}</p>
+  <div
+    class="text-muted-foreground mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm"
+  >
+    <span>{venue} {year}</span>
+    {
+      rating && (
+        <span aria-label={`Rated ${rating} of 5`} title={`${rating}/5`}>
+          {"★".repeat(rating)}
+          <span class="opacity-40">{"★".repeat(5 - rating)}</span>
+        </span>
+      )
+    }
+    {
+      hasPage && (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener"
+          class="hover:text-accent underline decoration-dashed underline-offset-4"
+        >
+          Paper ↗
+        </a>
+      )
+    }
+    {
+      tags.map(tag => (
+        <span class="bg-muted rounded px-1.5 text-xs">#{tag}</span>
+      ))
+    }
+  </div>
+</li>

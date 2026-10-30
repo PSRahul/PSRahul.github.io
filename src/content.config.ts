@@ -58,6 +58,20 @@ const posts = defineCollection({
           medium: z.url().optional(),
         })
         .optional(),
+      // Threads where the post is being discussed, shown under "Also published on"
+      discussion: z
+        .object({
+          hackernews: z.url().optional(),
+          reddit: z.url().optional(),
+          linkedin: z.url().optional(),
+        })
+        .optional(),
+      // Posts sharing a series name are linked as "Part N of M"
+      series: z.string().optional(),
+      // Sticky table of contents on wide screens (needs 3+ headings)
+      toc: z.boolean().default(true),
+      // "Cite this post" block with BibTeX
+      cite: z.boolean().default(true),
     }),
 });
 
@@ -90,6 +104,36 @@ const projects = defineCollection({
   }),
 });
 
+// Short notes / TILs, published at /notes/<slug>/
+const notes = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/notes" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    pubDatetime: z.date(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().optional(),
+  }),
+});
+
+export const PAPER_STATUSES = ["reading", "read", "to-read"] as const;
+
+// Reading list. A paper with a Markdown body gets its own page at /papers/<slug>/
+const papers = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/papers" }),
+  schema: z.object({
+    title: z.string(),
+    authors: z.string(),
+    venue: z.string(),
+    year: z.number().int(),
+    url: z.url(),
+    status: z.enum(PAPER_STATUSES),
+    rating: z.number().int().min(1).max(5).optional(),
+    readDate: z.date().optional(),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
 const pages = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/pages" }),
   schema: z.object({
@@ -97,7 +141,9 @@ const pages = defineCollection({
     description: z.string().optional(),
     ogImage: z.string().optional(),
     canonicalURL: z.string().optional(),
+    // Shown as "Last updated" on /now and /uses
+    updated: z.date().optional(),
   }),
 });
 
-export const collections = { posts, pages, external, projects };
+export const collections = { posts, pages, external, projects, notes, papers };

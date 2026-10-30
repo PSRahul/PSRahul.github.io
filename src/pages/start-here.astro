@@ -1,0 +1,124 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import WritingCard from "@/components/WritingCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import NoteItem from "@/components/NoteItem.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import SubscribeCta from "@/components/SubscribeCta.astro";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { getWritingItems } from "@/utils/getWritingItems";
+import { getSortedNotes } from "@/utils/getNotesAndPapers";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const intro = await getEntry("pages", "start-here");
+if (!intro) throw new Error("Missing src/content/pages/start-here.md");
+const { Content } = await render(intro);
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const favorites = (await getWritingItems(locale)).filter(item => item.featured);
+const projects = (
+  await getCollection("projects", ({ data }) => data.featured)
+).sort((a, b) => a.data.order - b.data.order);
+const notes = (await getSortedNotes()).slice(0, 3);
+
+const show = {
+  favorites: favorites.length > 0,
+  projects: projects.length > 0,
+  notes: notes.length > 0,
+};
+const linkClass =
+  "hover:text-accent underline decoration-dashed underline-offset-4";
+---
+
+<Layout
+  title={`${intro.data.title} | ${config.site.title}`}
+  description={intro.data.description}
+>
+  <Header />
+
+  <Breadcrumb title={intro.data.title} />
+
+  <Main pageTitle={intro.data.title}>
+    <div class="app-prose -mt-4">
+      <Content />
+    </div>
+
+    {
+      show.favorites && (
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold">Favorite posts</h2>
+          <ul>
+            {favorites.map(item => (
+              <WritingCard variant="h3" {item} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      show.projects && (
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold">{t.home.selectedProjects}</h2>
+          <ul>
+            {projects.map(project => (
+              <ProjectCard {project} />
+            ))}
+          </ul>
+          <LinkButton href={getRelativeLocaleUrl(locale, "projects")}>
+            {t.home.allProjects}
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+        </section>
+      )
+    }
+
+    {
+      show.notes && (
+        <section class="mt-10">
+          <h2 class="text-2xl font-semibold">Recent notes</h2>
+          <ul class="mt-2">
+            {notes.map(note => (
+              <NoteItem {note} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-semibold">More</h2>
+      <ul class="mt-2 list-disc space-y-1 ps-5">
+        <li>
+          <a
+            class={linkClass}
+            href={`${getRelativeLocaleUrl(locale, "about")}#publications`}
+            >Publications</a
+          > — including PhoCaL (CVPR 2022).
+        </li>
+        <li>
+          <a class={linkClass} href={getRelativeLocaleUrl(locale, "papers")}
+            >Papers</a
+          > I've read, with notes.
+        </li>
+        <li>
+          <a class={linkClass} href={getRelativeLocaleUrl(locale, "now")}>Now</a
+          > — what I'm working on at the moment.
+        </li>
+      </ul>
+    </section>
+
+    <SubscribeCta />
+  </Main>
+
+  <Footer />
+</Layout>

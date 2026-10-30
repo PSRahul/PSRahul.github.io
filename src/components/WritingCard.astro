@@ -9,7 +9,8 @@ type Props = {
 };
 
 const { variant: Heading = "h2", item } = Astro.props;
-const { title, description, url, source, ...dates } = item;
+const { title, description, url, source, featured, readingTime, ...dates } =
+  item;
 
 const isExternal = source !== "site";
 const sourceLabel = { substack: "Substack", medium: "Medium" } as const;
@@ -26,6 +27,13 @@ const sourceLabel = { substack: "Substack", medium: "Medium" } as const;
     ]}
   >
     <Heading transition:name={isExternal ? undefined : toTransitionName(title)}>
+      {
+        featured && (
+          <span title="Favorite" class="me-1">
+            ★<span class="sr-only">Favorite:</span>
+          </span>
+        )
+      }
       {title}
       {
         isExternal && (
@@ -38,6 +46,13 @@ const sourceLabel = { substack: "Substack", medium: "Medium" } as const;
   </a>
   <div class="flex flex-wrap items-center gap-x-3">
     <Datetime {...dates} />
+    {
+      readingTime && (
+        <span class="text-muted-foreground text-sm">
+          {readingTime} min read
+        </span>
+      )
+    }
     {
       isExternal && (
         <span class="border-border text-muted-foreground rounded border px-1.5 text-xs">

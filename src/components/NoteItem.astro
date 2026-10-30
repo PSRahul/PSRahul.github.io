@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+import { getNoteUrl } from "@/utils/getNotesAndPapers";
+
+type Props = { note: CollectionEntry<"notes"> };
+
+const { id, data } = Astro.props.note;
+---
+
+<li class="flex flex-col gap-x-4 py-1.5 sm:flex-row sm:items-baseline">
+  <time
+    datetime={data.pubDatetime.toISOString()}
+    class="text-muted-foreground shrink-0 font-mono text-sm tabular-nums"
+  >
+    {dayjs(data.pubDatetime).format("YYYY-MM-DD")}
+  </time>
+  <a
+    href={getNoteUrl(id, Astro.currentLocale)}
+    class="text-accent font-medium decoration-dashed underline-offset-4 hover:underline"
+  >
+    {data.title}
+  </a>
+</li>

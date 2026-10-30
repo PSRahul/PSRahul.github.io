@@ -3,6 +3,8 @@ export interface UIStrings {
     home: string;
     posts: string;
     projects: string;
+    notes: string;
+    papers: string;
     tags: string;
     about: string;
     archives: string;
@@ -10,6 +12,11 @@ export interface UIStrings {
   };
   post: {
     alsoOn: string;
+    discussOn: string;
+    minRead: string;
+    onThisPage: string;
+    citeAs: string;
+    orBibtex: string;
     publishedAt: string;
     updatedAt: string;
     sharePostIntro: string;
@@ -21,6 +28,13 @@ export interface UIStrings {
     editPage: string;
     previousPost: string;
     nextPost: string;
+  };
+  series: {
+    label: string;
+    partOf: string;
+    pageDesc: string;
+    indexDesc: string;
+    parts: string;
   };
   pagination: {
     prev: string;
@@ -36,10 +50,16 @@ export interface UIStrings {
     allProjects: string;
     subscribe: string;
     subscribeDesc: string;
+    startHere: string;
   };
   footer: {
     copyright: string;
     allRightsReserved: string;
+    startHere: string;
+    now: string;
+    uses: string;
+    colophon: string;
+    rss: string;
   };
   pages: {
     tagTitle: string;
@@ -53,6 +73,14 @@ export interface UIStrings {
 
     projectsTitle: string;
     projectsDesc: string;
+
+    notesTitle: string;
+    notesDesc: string;
+
+    papersTitle: string;
+    papersDesc: string;
+
+    lastUpdated: string;
 
     archivesTitle: string;
     archivesDesc: string;

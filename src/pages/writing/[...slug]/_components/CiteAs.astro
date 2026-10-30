@@ -1,0 +1,67 @@
+---
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+type Props = {
+  title: string;
+  author: string;
+  pubDatetime: Date;
+  url: string;
+};
+
+const { title, author, pubDatetime, url } = Astro.props;
+const t = useTranslations(Astro.currentLocale);
+
+// "Rahul Parthasarathy Srikanth" → "Srikanth, R. P."
+const names = author.trim().split(/\s+/);
+const lastName = names.at(-1) ?? author;
+const initials = names
+  .slice(0, -1)
+  .map(name => `${name[0]}.`)
+  .join(" ");
+const citedName = initials ? `${lastName}, ${initials}` : lastName;
+
+const year = pubDatetime.getUTCFullYear();
+const month = pubDatetime.toLocaleString("en", {
+  month: "short",
+  timeZone: "UTC",
+});
+const host = new URL(config.site.url).host;
+
+const keyWord =
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, "")
+    .split(" ")
+    .find(word => word.length > 3) ?? "post";
+const bibKey = `${lastName.toLowerCase()}${year}${keyWord}`;
+
+// Braces keep BibTeX from lowercasing acronyms in the title
+const bibtex = `@article{${bibKey},
+  title   = "{${title}}",
+  author  = "${author}",
+  journal = "${host}",
+  year    = "${year}",
+  month   = "${month}",
+  url     = "${url}"
+}`;
+---
+
+<section aria-labelledby="cite-heading" class="mt-10">
+  <p id="cite-heading" class="text-muted-foreground mb-2 text-sm font-semibold">
+    {t.post.citeAs}
+  </p>
+  <blockquote
+    class="border-border text-muted-foreground border-s-2 ps-4 text-sm"
+  >
+    {citedName} ({month}
+    {year}). {title}. <em>{host}</em>.{" "}
+    <a
+      href={url}
+      class="break-all underline decoration-dashed underline-offset-4">{url}</a
+    >
+  </blockquote>
+  <p class="text-muted-foreground mt-4 mb-2 text-sm">{t.post.orBibtex}</p>
+  <pre
+    class="bg-muted/50 border-border overflow-x-auto rounded border p-4 text-xs"><code>{bibtex}</code></pre>
+</section>

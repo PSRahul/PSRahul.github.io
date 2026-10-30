@@ -1,0 +1,27 @@
+---
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const { substack } = config.syndication;
+const t = useTranslations(Astro.currentLocale);
+---
+
+{
+  substack && (
+    <section
+      id="subscribe"
+      class="border-border my-8 rounded-md border border-dashed p-6"
+    >
+      <h2 class="text-xl font-semibold">{t.home.subscribe}</h2>
+      <p class="mt-2">{t.home.subscribeDesc}</p>
+      <a
+        href={`https://${substack}.substack.com/subscribe`}
+        target="_blank"
+        rel="noopener"
+        class="bg-accent text-background mt-4 inline-block rounded px-4 py-2 font-medium hover:opacity-90"
+      >
+        Subscribe on Substack
+      </a>
+    </section>
+  )
+}

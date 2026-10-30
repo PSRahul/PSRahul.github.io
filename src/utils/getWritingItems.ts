@@ -1,6 +1,7 @@
 import { getCollection } from "astro:content";
 import { getPostUrl } from "./getPostPaths";
 import { getSortedPosts } from "./getSortedPosts";
+import { getReadingTime } from "./readingTime";
 
 export type WritingSource = "site" | "substack" | "medium";
 
@@ -12,6 +13,9 @@ export interface WritingItem {
   pubDatetime: Date;
   modDatetime?: Date | null;
   timezone?: string;
+  /** Local posts marked `featured`, shown with a star */
+  featured?: boolean;
+  readingTime?: number;
 }
 
 const normalize = (value: string) =>
@@ -42,15 +46,19 @@ export async function getWritingItems(locale?: string): Promise<WritingItem[]> {
   );
   const localTitles = new Set(posts.map(({ data }) => normalize(data.title)));
 
-  const localItems: WritingItem[] = posts.map(({ id, filePath, data }) => ({
-    title: data.title,
-    description: data.description,
-    url: getPostUrl(id, filePath, locale),
-    source: "site",
-    pubDatetime: data.pubDatetime,
-    modDatetime: data.modDatetime,
-    timezone: data.timezone,
-  }));
+  const localItems: WritingItem[] = posts.map(
+    ({ id, filePath, data, body }) => ({
+      title: data.title,
+      description: data.description,
+      url: getPostUrl(id, filePath, locale),
+      source: "site",
+      pubDatetime: data.pubDatetime,
+      modDatetime: data.modDatetime,
+      timezone: data.timezone,
+      featured: data.featured,
+      readingTime: getReadingTime(body),
+    })
+  );
 
   const externalItems: WritingItem[] = external
     .filter(

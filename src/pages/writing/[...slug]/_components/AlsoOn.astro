@@ -2,24 +2,49 @@
 import type { CollectionEntry } from "astro:content";
 import { useTranslations } from "@/i18n";
 
+type PostData = CollectionEntry<"posts">["data"];
+
 type Props = {
-  syndication: CollectionEntry<"posts">["data"]["syndication"];
+  syndication: PostData["syndication"];
+  discussion?: PostData["discussion"];
 };
 
-const { syndication } = Astro.props;
+const { syndication, discussion } = Astro.props;
 const t = useTranslations(Astro.currentLocale);
 
-const links = [
-  { label: "Substack", url: syndication?.substack },
-  { label: "Medium", url: syndication?.medium },
-].filter((link): link is { label: string; url: string } => Boolean(link.url));
+type Link = { label: string; url: string };
+const present = (links: { label: string; url?: string }[]) =>
+  links.filter((link): link is Link => Boolean(link.url));
+
+const rows = [
+  {
+    intro: t.post.alsoOn,
+    links: present([
+      { label: "Substack", url: syndication?.substack },
+      { label: "Medium", url: syndication?.medium },
+    ]),
+  },
+  {
+    intro: t.post.discussOn,
+    links: present([
+      { label: "Hacker News", url: discussion?.hackernews },
+      { label: "Reddit", url: discussion?.reddit },
+      { label: "LinkedIn", url: discussion?.linkedin },
+    ]),
+  },
+].filter(row => row.links.length > 0);
 ---
 
 {
-  links.length > 0 && (
-    <p class="text-muted-foreground mt-8 text-sm">
-      {t.post.alsoOn}{" "}
-      {links.map((link, index) => (
+  rows.map((row, rowIndex) => (
+    <p
+      class:list={[
+        "text-muted-foreground text-sm",
+        rowIndex === 0 ? "mt-8" : "mt-2",
+      ]}
+    >
+      {row.intro}{" "}
+      {row.links.map((link, index) => (
         <>
           {index > 0 && " · "}
           <a
@@ -33,5 +58,5 @@ const links = [
         </>
       ))}
     </p>
-  )
+  ))
 }
