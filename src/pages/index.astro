@@ -28,6 +28,8 @@ const featuredProjects = (
   await getCollection("projects", ({ data }) => data.featured)
 ).sort((a, b) => a.data.order - b.data.order);
 const homePath = getRelativeLocaleUrl(locale, "");
+const inlineLink =
+  "hover:text-accent underline decoration-dashed underline-offset-4";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -91,35 +93,38 @@ const structuredData = {
       </div>
 
       <p>
-        I'm a machine learning engineer. I build production ML systems end to
-        end, from data pipelines and training to evaluation and inference. My
-        work has spanned computer vision, few-shot detection and, more recently,
-        LLMs and generative models.
+        I'm a machine learning engineer at
+        <a class={inlineLink} href="https://www.acvauctions.com/"
+          >ACV Auctions</a
+        >
+        in Chennai, India. I build production ML systems end to end: data pipelines,
+        training, evaluation and serving.
       </p>
       <p class="mt-2">
-        Here I write about what I learn and keep a record of
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href={getRelativeLocaleUrl(locale, "projects")}
-        >
-          projects
-        </LinkButton>. More
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href={getRelativeLocaleUrl(locale, "about")}
-        >
-          about me
-        </LinkButton>.
+        Before that I worked on ML inference for TI TDA4 edge chips at
+        MulticoreWare, and on computer vision at TÜV Rheinland, where I cut
+        model inference from 272&nbsp;ms to 41&nbsp;ms. My master thesis at TUM
+        and PreciTaste was
+        <a
+          class={inlineLink}
+          href={getRelativeLocaleUrl(locale, "projects/clipthecenter")}
+          >CLIPtheCenter</a
+        >, few-shot object detection with CLIP.
       </p>
       <p class="mt-2">
         Co-author of
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
+        <a
+          class={inlineLink}
           href={`${getRelativeLocaleUrl(locale, "about")}#publications`}
-        >
-          PhoCaL (CVPR 2022)
-        </LinkButton>, a multi-modal dataset for category-level object pose
-        estimation.
+          >PhoCaL (CVPR 2022)</a
+        >, a multi-modal dataset for category-level object pose estimation. Here
+        I write about what I learn and keep a record of
+        <a class={inlineLink} href={getRelativeLocaleUrl(locale, "projects")}
+          >projects</a
+        >. More <a
+          class={inlineLink}
+          href={getRelativeLocaleUrl(locale, "about")}>about me</a
+        >.
       </p>
       <p class="mt-4">
         <LinkButton

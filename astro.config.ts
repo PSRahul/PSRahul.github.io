@@ -32,7 +32,7 @@ export default defineConfig({
     "/certs": "/about/#certifications",
     "/workexperience": "/about/#experience",
     "/education": "/about/#education",
-    "/skills": "/about/#achievements",
+    "/skills": "/about/#skills",
     "/publications": "/about/#publications",
     "/posts": "/writing/",
     "/projects/clipclassifier": "/projects/",
