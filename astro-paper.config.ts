@@ -47,7 +47,7 @@ export default defineAstroPaperConfig({
   // Cookie-free page view counts. Set to your GoatCounter site code, e.g.
   // "psrahul" for https://psrahul.goatcounter.com. Off while empty.
   analytics: {
-    goatcounter: "",
+    goatcounter: "psrahul",
   },
   socials: [
     { name: "github", url: "https://github.com/PSRahul" },
