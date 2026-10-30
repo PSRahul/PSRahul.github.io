@@ -5,12 +5,12 @@ export default defineAstroPaperConfig({
     url: "https://psrahul.github.io/",
     title: "Rahul PS",
     description:
-      "Rahul Parthasarathy Srikanth — machine learning engineer writing about ML, computer vision and LLMs.",
+      "Rahul Parthasarathy Srikanth — machine learning engineer in Chennai, writing about ML, computer vision and LLMs.",
     author: "Rahul Parthasarathy Srikanth",
     profile: "https://github.com/PSRahul",
     ogImage: "default-og.jpg",
     lang: "en",
-    timezone: "Europe/Berlin",
+    timezone: "Asia/Kolkata",
     dir: "ltr",
   },
   posts: {

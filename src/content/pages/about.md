@@ -1,11 +1,9 @@
 ---
 title: "About"
-description: "Rahul Parthasarathy Srikanth — machine learning engineer. Experience, education and certifications."
+description: "Rahul Parthasarathy Srikanth — machine learning engineer at ACV Auctions. Experience, education, publications and certifications."
 ---
 
-<!-- TODO(Rahul): update with current role and focus. -->
-
-Hi, I'm Rahul. I'm a machine learning engineer who builds production ML systems end to end: data pipelines, model selection and training, evaluation metrics, and efficient inference. I studied Computational Science and Engineering at the Technical University of Munich, where my master thesis was on few-shot object detection with CLIP.
+Hi, I'm Rahul. I'm a machine learning engineer at [ACV Auctions](https://www.acvauctions.com/), based in Chennai, India. I build production ML systems end to end: data pipelines, model selection and training, evaluation metrics, and efficient inference. I studied Computational Science and Engineering at the Technical University of Munich, where my master thesis was on few-shot object detection with CLIP.
 
 I write here about machine learning, computer vision and LLMs. Posts are also published on Substack and Medium.
 
@@ -15,25 +13,50 @@ Reach me at psrahul.ml(at)gmail.com, or on [GitHub](https://github.com/PSRahul) 
 
 ## Experience
 
-<!-- TODO(Rahul): add dates and highlights for TÜV Rheinland and any later roles. -->
+### Machine Learning Engineer — [ACV Auctions](https://www.acvauctions.com/)
 
-### Machine Learning Developer — TÜV Rheinland
+_October 2024 – present_
 
-### Working Student and Master Thesis, Machine Learning Team — [PreciTaste](https://precitaste.com/)
+### Senior Software Engineer, ML Frameworks Team — [MulticoreWare](https://multicorewareinc.com/)
 
-_October 2021 – December 2022_
+_May 2024 – October 2024_
 
-- Led the project to automate finding the positions of object corner points in an image using a deep learning-based segmentation network. Conducted a thorough literature review and set up data, training and evaluation pipelines in PyTorch for fast prototyping.
-- Coordinated data annotation and model maintenance for a customer deployment. Achieved 95% precision on object detection models.
+- Machine learning inference for Texas Instruments TDA4 chips.
+
+### Computer Vision and Machine Learning Developer — TÜV Rheinland AG
+
+_May 2023 – April 2024 · Bochum, Germany_
+
+- Ran statistical analysis on 20k+ data samples and built end-to-end data pipelines with MongoDB, FastAPI and Label Studio for streamlined data retrieval.
+- Designed, trained and evaluated PyTorch models for vehicle damage detection. Introduced a new class-balancing algorithm that raised precision from 40% to 70%.
+- Deployed the models as microservices with TorchServe REST APIs on a Kubernetes cluster, cutting inference time from 272 ms to 41 ms per sample.
+
+### Machine Learning Researcher (Master Thesis) — [PreciTaste](https://precitaste.com/)
+
+_May 2022 – December 2022 · Munich, Germany_
+
+- Proposed [CLIPtheCenter](/projects/clipthecenter/), a multimodal few-shot object detection model that combines OpenAI's CLIP with the CenterNet architecture.
+- Raised object detection precision from 17% to 50% over the CenterNet baseline.
+
+### Machine Learning Engineer (Part Time) — [PreciTaste](https://precitaste.com/)
+
+_October 2021 – April 2022 · Munich, Germany_
+
+- Designed and implemented data-driven vision algorithms in PyTorch to segment regions of interest in videos, replacing hand-written rules.
+- Trained and deployed object detection models with up to 95% mean precision for production projects, and coordinated data annotation and model maintenance for a customer deployment.
 - Developed a web app with Plotly, Dash and Pandas for visualising experimental data.
 
-### Working Student / Intern, Video Analytics Team — [IPS Intelligent Video Software, Securiton Germany](https://ips.securiton.de/en/index.html)
+### Machine Learning Intern, Video Analytics Team — [IPS Intelligent Video Software, Securiton Germany](https://ips.securiton.de/en/index.html)
 
-_July 2021 – September 2021_
+_July 2021 – September 2021 · Munich, Germany_
 
-- Built data and training frameworks to study the feasibility of deep learning-based pedestrian detection in videos.
+- Developed deep learning proofs of concept for detecting pedestrians in security camera footage with TensorFlow and OpenVINO.
 - Managed automated annotation of 5000+ images and set up SQL data pipelines to retrieve data by object category.
-- Ran extensive experiments with models such as the TensorFlow Object Detection API on a GPU cluster with parallel training, and designed metrics to balance inference speed against accuracy.
+- Ran experiments with models such as the TensorFlow Object Detection API on a GPU cluster with parallel training, and designed metrics to balance inference speed against accuracy.
+
+### Research Assistant, Computer Vision Team — Technical University of Munich
+
+- Contributed to dataset preparation for [PhoCaL](#publications), published at CVPR 2022.
 
 ### Student Teaching Assistant — Technical University of Munich, [Introduction to Deep Learning (I2DL)](https://niessner.github.io/I2DL/)
 
@@ -43,15 +66,17 @@ _November 2020 – March 2021_
 
 ### Graduate Engineering Trainee — [Ashok Leyland](https://www.ashokleyland.com/in/en)
 
-_July 2017 – August 2018_
+_July 2017 – August 2018 · Chennai, India_
 
+- Worked on predictive reliability analytics for automotive components, measuring product reliability from warranty claims and spare parts data.
 - Standardised onboarding of lateral hires as a functional Six Sigma project in Human Resources.
 - Managed relationships with axle and brake drum suppliers during periods of high product demand.
-- Measured product reliability using warranty claims and spare parts data.
 
 ## Education
 
 ### M.Sc. Computational Science and Engineering — [Technical University of Munich](https://www.tum.de/en/)
+
+_October 2019 – December 2022_
 
 GPA 1.9 (German scale). Coursework included Machine Learning, Introduction to Deep Learning, Advanced Topics in 3D Computer Vision, Visual Data Analytics, Data Innovation Lab, Advanced Programming, Parallel Programming, and the seminar Deep Learning for Medical Applications.
 
@@ -61,7 +86,22 @@ Partly completed; specialised in fluid dynamics and computational methods.
 
 ### B.Tech. Mechanical Engineering — [SASTRA Deemed University](https://www.sastra.edu/)
 
+_June 2013 – May 2017_
+
 GPA 1.4 (German scale). Coursework included Numerical and Statistical Methods, Programming in C, and Programming in C++.
+
+## Skills
+
+- **Languages and databases:** Python, C++, MongoDB, Redis
+- **Machine learning:** PyTorch, TensorFlow, scikit-learn, Optuna
+- **MLOps:** MLflow, Kubeflow, TorchServe, Label Studio, FastAPI
+- **Numerical:** NumPy, SciPy, OpenCV, scikit-image, Pandas
+- **Developer tools:** Kubernetes, Docker, Earthly
+- **Generative AI:** OpenAI API, LangChain, Hugging Face, diffusion models
+
+## Languages
+
+English (fluent) · Tamil (fluent) · German (intermediate, Goethe-Zertifikat B1)
 
 ## Publications
 
