@@ -60,6 +60,9 @@ export const GET: APIRoute = async context => {
             type: "div",
             props: {
               style: {
+                // Satori follows CSS paint order: without this the absolutely
+                // positioned shadow box above is drawn over the card.
+                position: "relative",
                 border: "4px solid #000",
                 background: "#fefbfb",
                 borderRadius: "4px",

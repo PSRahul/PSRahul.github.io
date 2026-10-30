@@ -9,6 +9,14 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # @astrojs/check only supports TypeScript 5 and 6; drop once it allows 7
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+      # 1.x rewraps inline text in .astro files, which can change rendered
+      # whitespace; revisit when upgrading deliberately
+      - dependency-name: prettier-plugin-astro
+        update-types: [version-update:semver-major]
 
   - package-ecosystem: github-actions
     directory: /
