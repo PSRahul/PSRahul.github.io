@@ -39,15 +39,15 @@ export default defineAstroPaperConfig({
   comments: {
     giscus: {
       repo: "PSRahul/PSRahul.github.io",
-      repoId: "",
+      repoId: "R_kgDOHjyQ1g",
       category: "Comments",
-      categoryId: "",
+      categoryId: "DIC_kwDOHjyQ1s4DJ-oG",
     },
   },
   // Cookie-free page view counts. Set to your GoatCounter site code, e.g.
   // "psrahul" for https://psrahul.goatcounter.com. Off while empty.
   analytics: {
-    goatcounter: "",
+    goatcounter: "psrahul",
   },
   socials: [
     { name: "github", url: "https://github.com/PSRahul" },
