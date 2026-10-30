@@ -24,6 +24,9 @@ import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
+  // Astro 7 defaults to "jsx", which drops the line-break whitespace the
+  // templates rely on between text and inline links ("record ofprojects")
+  compressHTML: true,
   // Pages from the old Jekyll site that were folded into /about/
   redirects: {
     "/certs": "/about/#certifications",

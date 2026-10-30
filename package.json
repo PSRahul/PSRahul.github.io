@@ -3,9 +3,6 @@
   "private": true,
   "type": "module",
   "version": "6.1.0",
-  "overrides": {
-    "vite": "^7.3.3"
-  },
   "engines": {
     "node": ">=22.12.0"
   },
@@ -20,11 +17,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^6.0.1",
+    "@astrojs/mdx": "^8.1.2",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.4.2",
+    "astro": "^7.4.2",
     "dayjs": "^1.11.21",
     "fast-xml-parser": "^5.11.2",
     "katex": "^0.19.1",
@@ -34,8 +31,8 @@
     "remark-collapse": "^0.1.2",
     "remark-math": "^6.0.0",
     "remark-toc": "^9.0.0",
-    "satori": "^0.26.0",
-    "sharp": "^0.34.5",
+    "satori": "^0.63.2",
+    "sharp": "^0.35.5",
     "slugify": "^1.6.9",
     "tailwindcss": "^4.3.0"
   },
@@ -50,7 +47,7 @@
     "eslint": "^10.4.1",
     "eslint-plugin-astro": "^1.7.0",
     "pagefind": "^1.5.2",
-    "prettier": "3.8.3",
+    "prettier": "3.9.10",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "typescript": "^6.0.3"
