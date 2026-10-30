@@ -47,6 +47,16 @@
       @apply border-border mx-auto border;
     }
 
+    /* Organisation logos at the start of About page headings */
+    h3 > img:first-child {
+      @apply m-0 me-2.5 inline-block size-8 rounded-md bg-white object-contain p-0.5 align-middle;
+    }
+
+    /* Hanging indent so wrapped lines line up with the text, not the logo */
+    h3:has(> img:first-child) {
+      @apply ps-10.5 -indent-10.5;
+    }
+
     img[role="button"] {
       @apply cursor-zoom-in;
 

@@ -13,17 +13,17 @@ Reach me at psrahul.ml(at)gmail.com, or on [GitHub](https://github.com/PSRahul) 
 
 ## Experience
 
-### Machine Learning Engineer — [ACV Auctions](https://www.acvauctions.com/)
+### ![](../../assets/images/logos/acv-auctions.png)Machine Learning Engineer — [ACV Auctions](https://www.acvauctions.com/)
 
 _October 2024 – present_
 
-### Senior Software Engineer, ML Frameworks Team — [MulticoreWare](https://multicorewareinc.com/)
+### ![](../../assets/images/logos/multicoreware.png)Senior Software Engineer, ML Frameworks Team — [MulticoreWare](https://multicorewareinc.com/)
 
 _May 2024 – October 2024_
 
 - Machine learning inference for Texas Instruments TDA4 chips.
 
-### Computer Vision and Machine Learning Developer — TÜV Rheinland AG
+### ![](../../assets/images/logos/tuv-rheinland.png)Computer Vision and Machine Learning Developer — TÜV Rheinland AG
 
 _May 2023 – April 2024 · Bochum, Germany_
 
@@ -31,14 +31,14 @@ _May 2023 – April 2024 · Bochum, Germany_
 - Designed, trained and evaluated PyTorch models for vehicle damage detection. Introduced a new class-balancing algorithm that raised precision from 40% to 70%.
 - Deployed the models as microservices with TorchServe REST APIs on a Kubernetes cluster, cutting inference time from 272 ms to 41 ms per sample.
 
-### Machine Learning Researcher (Master Thesis) — [PreciTaste](https://precitaste.com/)
+### ![](../../assets/images/logos/precitaste.png)Machine Learning Researcher (Master Thesis) — [PreciTaste](https://precitaste.com/)
 
 _May 2022 – December 2022 · Munich, Germany_
 
 - Proposed [CLIPtheCenter](/projects/clipthecenter/), a multimodal few-shot object detection model that combines OpenAI's CLIP with the CenterNet architecture.
 - Raised object detection precision from 17% to 50% over the CenterNet baseline.
 
-### Machine Learning Engineer (Part Time) — [PreciTaste](https://precitaste.com/)
+### ![](../../assets/images/logos/precitaste.png)Machine Learning Engineer (Part Time) — [PreciTaste](https://precitaste.com/)
 
 _October 2021 – April 2022 · Munich, Germany_
 
@@ -46,7 +46,7 @@ _October 2021 – April 2022 · Munich, Germany_
 - Trained and deployed object detection models with up to 95% mean precision for production projects, and coordinated data annotation and model maintenance for a customer deployment.
 - Developed a web app with Plotly, Dash and Pandas for visualising experimental data.
 
-### Machine Learning Intern, Video Analytics Team — [IPS Intelligent Video Software, Securiton Germany](https://ips.securiton.de/en/index.html)
+### ![](../../assets/images/logos/securiton.png)Machine Learning Intern, Video Analytics Team — [IPS Intelligent Video Software, Securiton Germany](https://www.securiton.de/)
 
 _July 2021 – September 2021 · Munich, Germany_
 
@@ -54,17 +54,17 @@ _July 2021 – September 2021 · Munich, Germany_
 - Managed automated annotation of 5000+ images and set up SQL data pipelines to retrieve data by object category.
 - Ran experiments with models such as the TensorFlow Object Detection API on a GPU cluster with parallel training, and designed metrics to balance inference speed against accuracy.
 
-### Research Assistant, Computer Vision Team — Technical University of Munich
+### ![](../../assets/images/logos/tum.png)Research Assistant, Computer Vision Team — Technical University of Munich
 
 - Contributed to dataset preparation for [PhoCaL](#publications), published at CVPR 2022.
 
-### Student Teaching Assistant — Technical University of Munich, [Introduction to Deep Learning (I2DL)](https://niessner.github.io/I2DL/)
+### ![](../../assets/images/logos/tum.png)Student Teaching Assistant — Technical University of Munich, [Introduction to Deep Learning (I2DL)](https://niessner.github.io/I2DL/)
 
 _November 2020 – March 2021_
 
 - Held office hours and helped prepare programming exercises.
 
-### Graduate Engineering Trainee — [Ashok Leyland](https://www.ashokleyland.com/in/en)
+### ![](../../assets/images/logos/ashok-leyland.png)Graduate Engineering Trainee — [Ashok Leyland](https://www.ashokleyland.com/in/en)
 
 _July 2017 – August 2018 · Chennai, India_
 
@@ -74,17 +74,17 @@ _July 2017 – August 2018 · Chennai, India_
 
 ## Education
 
-### M.Sc. Computational Science and Engineering — [Technical University of Munich](https://www.tum.de/en/)
+### ![](../../assets/images/logos/tum.png)M.Sc. Computational Science and Engineering — [Technical University of Munich](https://www.tum.de/en/)
 
 _October 2019 – December 2022_
 
 GPA 1.9 (German scale). Coursework included Machine Learning, Introduction to Deep Learning, Advanced Topics in 3D Computer Vision, Visual Data Analytics, Data Innovation Lab, Advanced Programming, Parallel Programming, and the seminar Deep Learning for Medical Applications.
 
-### M.Tech. Computational and Experimental Mechanics — [Indian Institute of Technology Madras](https://www.iitm.ac.in/)
+### ![](../../assets/images/logos/iit-madras.png)M.Tech. Computational and Experimental Mechanics — [Indian Institute of Technology Madras](https://www.iitm.ac.in/)
 
 Partly completed; specialised in fluid dynamics and computational methods.
 
-### B.Tech. Mechanical Engineering — [SASTRA Deemed University](https://www.sastra.edu/)
+### ![](../../assets/images/logos/sastra.png)B.Tech. Mechanical Engineering — [SASTRA Deemed University](https://www.sastra.edu/)
 
 _June 2013 – May 2017_
 
